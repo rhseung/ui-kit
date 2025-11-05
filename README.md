@@ -1,1 +1,3 @@
-# ui-kit
+# UI-Kit
+
+![Logo](./public//logo.png)

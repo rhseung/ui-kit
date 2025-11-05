@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "trailingComma": "all",
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports",
+    "prettier-plugin-tailwindcss"
+  ],
+  "tailwindFunctions": ["cn", "cva", "tv"],
+  "tailwindPreserveWhitespace": false,
+  "importOrder": ["^react$", "^react/(.*)$", "^@?\\w", "^@/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
