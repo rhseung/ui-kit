@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-import { type VariantProps, tv } from 'tailwind-variants';
+import { type VariantProps } from 'tailwind-variants';
+
+import { tv } from '@/utils';
 
 type SvgComponent = React.ComponentType<React.SVGProps<SVGSVGElement>>;
 
