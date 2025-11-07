@@ -1,3 +1,3 @@
 # UI-Kit
 
-![Logo](./public//logo.png)
+<img src="./public//logo.png" alt="Logo" width="50%">
