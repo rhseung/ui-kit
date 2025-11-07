@@ -3,7 +3,7 @@ import 'react';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { SunIcon } from '@/assets';
-import { Button, IconButton } from '@/components';
+import { Button, IconButton, Input } from '@/components';
 import { useTheme } from '@/hooks/use-theme';
 import { type HueName, hueNames } from '@/styles/colors';
 import { cn } from '@/utils/cn';
@@ -96,59 +96,6 @@ function App() {
           </div>
         </div>
 
-        {/* Variants × Sizes */}
-        <div className="flex flex-col gap-2">
-          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            Variants × Sizes
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="solid" size="sm">
-                Solid SM
-              </Button>
-              <Button variant="solid" size="md">
-                Solid MD
-              </Button>
-              <Button variant="solid" size="lg">
-                Solid LG
-              </Button>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="soft" size="sm">
-                Soft SM
-              </Button>
-              <Button variant="soft" size="md">
-                Soft MD
-              </Button>
-              <Button variant="soft" size="lg">
-                Soft LG
-              </Button>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="outline" size="sm">
-                Outline SM
-              </Button>
-              <Button variant="outline" size="md">
-                Outline MD
-              </Button>
-              <Button variant="outline" size="lg">
-                Outline LG
-              </Button>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <Button variant="ghost" size="sm">
-                Ghost SM
-              </Button>
-              <Button variant="ghost" size="md">
-                Ghost MD
-              </Button>
-              <Button variant="ghost" size="lg">
-                Ghost LG
-              </Button>
-            </div>
-          </div>
-        </div>
-
         {/* Colors */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
@@ -167,69 +114,6 @@ function App() {
             <Button color="crimson" variant="solid">
               Crimson
             </Button>
-            <Button color="green" variant="solid">
-              Green
-            </Button>
-            <Button color="purple" variant="solid">
-              Purple
-            </Button>
-            <Button color="pink" variant="solid">
-              Pink
-            </Button>
-            <Button color="blue" variant="solid">
-              Blue
-            </Button>
-          </div>
-        </div>
-
-        {/* Colors with Variants */}
-        <div className="flex flex-col gap-2">
-          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            Colors × Variants
-          </div>
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-wrap items-start gap-4">
-              <Button color="indigo" variant="soft">
-                Indigo Soft
-              </Button>
-              <Button color="cyan" variant="soft">
-                Cyan Soft
-              </Button>
-              <Button color="orange" variant="soft">
-                Orange Soft
-              </Button>
-              <Button color="crimson" variant="soft">
-                Crimson Soft
-              </Button>
-            </div>
-            <div className="flex flex-wrap items-start gap-4">
-              <Button color="indigo" variant="outline">
-                Indigo Outline
-              </Button>
-              <Button color="cyan" variant="outline">
-                Cyan Outline
-              </Button>
-              <Button color="orange" variant="outline">
-                Orange Outline
-              </Button>
-              <Button color="crimson" variant="outline">
-                Crimson Outline
-              </Button>
-            </div>
-            <div className="flex flex-wrap items-start gap-4">
-              <Button color="indigo" variant="ghost">
-                Indigo Ghost
-              </Button>
-              <Button color="cyan" variant="ghost">
-                Cyan Ghost
-              </Button>
-              <Button color="orange" variant="ghost">
-                Orange Ghost
-              </Button>
-              <Button color="crimson" variant="ghost">
-                Crimson Ghost
-              </Button>
-            </div>
           </div>
         </div>
 
@@ -259,164 +143,174 @@ function App() {
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
             IconButton
           </div>
-          <div className="flex flex-col gap-3">
-            <div className="flex flex-wrap items-center gap-4">
-              <IconButton size="sm" variant="solid">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="md" variant="solid">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="lg" variant="solid">
-                <SunIcon />
-              </IconButton>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <IconButton size="sm" variant="soft">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="md" variant="soft">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="lg" variant="soft">
-                <SunIcon />
-              </IconButton>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <IconButton size="sm" variant="outline">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="md" variant="outline">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="lg" variant="outline">
-                <SunIcon />
-              </IconButton>
-            </div>
-            <div className="flex flex-wrap items-center gap-4">
-              <IconButton size="sm" variant="ghost">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="md" variant="ghost">
-                <SunIcon />
-              </IconButton>
-              <IconButton size="lg" variant="ghost">
-                <SunIcon />
-              </IconButton>
-            </div>
-          </div>
-        </div>
-
-        {/* IconButton with highContrast */}
-        <div className="flex flex-col gap-2">
-          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            IconButton (High Contrast)
-          </div>
           <div className="flex flex-wrap items-center gap-4">
-            <IconButton size="sm" variant="solid" highContrast>
+            <IconButton size="sm" variant="solid">
               <SunIcon />
             </IconButton>
-            <IconButton size="md" variant="solid" highContrast>
+            <IconButton size="md" variant="solid">
               <SunIcon />
             </IconButton>
-            <IconButton size="lg" variant="solid" highContrast>
+            <IconButton size="lg" variant="solid">
               <SunIcon />
             </IconButton>
-            <IconButton size="md" variant="soft" highContrast>
+            <IconButton size="md" variant="soft">
               <SunIcon />
             </IconButton>
-            <IconButton size="md" variant="outline" highContrast>
+            <IconButton size="md" variant="outline">
               <SunIcon />
             </IconButton>
-            <IconButton size="md" variant="ghost" highContrast>
-              <SunIcon />
-            </IconButton>
-          </div>
-        </div>
-
-        {/* IconButton with Colors */}
-        <div className="flex flex-col gap-2">
-          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            IconButton × Colors
-          </div>
-          <div className="flex flex-wrap items-center gap-4">
-            <IconButton color="indigo" variant="solid">
-              <SunIcon />
-            </IconButton>
-            <IconButton color="cyan" variant="solid">
-              <SunIcon />
-            </IconButton>
-            <IconButton color="orange" variant="solid">
-              <SunIcon />
-            </IconButton>
-            <IconButton color="crimson" variant="solid">
-              <SunIcon />
-            </IconButton>
-            <IconButton color="green" variant="soft">
-              <SunIcon />
-            </IconButton>
-            <IconButton color="purple" variant="outline">
-              <SunIcon />
-            </IconButton>
-            <IconButton color="pink" variant="ghost">
+            <IconButton size="md" variant="ghost">
               <SunIcon />
             </IconButton>
           </div>
         </div>
 
-        {/* Block Button */}
+        {/* Input */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            Block Button
+            Input
           </div>
           <div className="flex flex-col gap-3">
-            <Button block>Block Button</Button>
-            <Button block variant="soft">
-              Block Soft
-            </Button>
-            <Button block variant="outline">
-              Block Outline
-            </Button>
-            <Button block variant="ghost">
-              Block Ghost
-            </Button>
-            <Button block highContrast>
-              Block High Contrast
-            </Button>
-            <Button block size="lg">
-              <SunIcon /> Block Large with Icon
-            </Button>
+            <Input placeholder="Default input" />
+            <Input placeholder="Small input" size="sm" />
+            <Input placeholder="Large input" size="lg" />
           </div>
         </div>
 
-        {/* Complex Combinations */}
+        {/* Input Sizes */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            Complex Combinations
+            Input Sizes
           </div>
           <div className="flex flex-col gap-3">
-            <div className="flex flex-wrap items-start gap-4">
-              <Button color="indigo" variant="solid" size="lg" highContrast>
-                <SunIcon /> Indigo Solid LG HC
-              </Button>
-              <Button color="cyan" variant="soft" size="md" highContrast>
-                <SunIcon /> Cyan Soft MD HC
-              </Button>
-              <Button color="orange" variant="outline" size="sm">
-                <SunIcon /> Orange Outline SM
-              </Button>
+            <Input size="sm" placeholder="Small input" />
+            <Input size="md" placeholder="Medium input" />
+            <Input size="lg" placeholder="Large input" />
+          </div>
+        </div>
+
+        {/* Input States */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            Input States
+          </div>
+          <div className="flex flex-col gap-3">
+            <Input placeholder="Normal input" />
+            <Input placeholder="Error input" error />
+            <Input placeholder="Disabled input" disabled />
+            <Input
+              placeholder="Readonly input"
+              readOnly
+              value="Readonly value"
+            />
+          </div>
+        </div>
+
+        {/* Input Colors */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            Input Colors
+          </div>
+          <div className="flex flex-col gap-3">
+            <Input color="indigo" placeholder="Indigo input" />
+            <Input color="cyan" placeholder="Cyan input" />
+            <Input color="orange" placeholder="Orange input" />
+            <Input color="crimson" placeholder="Crimson input" />
+            <Input color="green" placeholder="Green input" />
+            <Input color="purple" placeholder="Purple input" />
+          </div>
+        </div>
+
+        {/* Input Types */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            Input Types
+          </div>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">text</label>
+              <Input type="text" placeholder="Text input" />
             </div>
-            <div className="flex flex-wrap items-start gap-4">
-              <Button color="crimson" variant="ghost" size="lg">
-                Crimson Ghost LG
-              </Button>
-              <Button color="green" variant="solid" size="sm" highContrast>
-                Green Solid SM HC
-              </Button>
-              <Button color="purple" variant="soft" size="md">
-                Purple Soft MD
-              </Button>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">email</label>
+              <Input type="email" placeholder="Email input" />
             </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">password</label>
+              <Input type="password" placeholder="Password input" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">number</label>
+              <Input type="number" placeholder="Number input" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">search</label>
+              <Input type="search" placeholder="Search input" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">tel</label>
+              <Input type="tel" placeholder="Tel input" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">url</label>
+              <Input type="url" placeholder="URL input" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">date</label>
+              <Input type="date" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">time</label>
+              <Input type="time" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">
+                datetime-local
+              </label>
+              <Input type="datetime-local" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">month</label>
+              <Input type="month" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">week</label>
+              <Input type="week" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">color</label>
+              <Input type="color" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">range</label>
+              <Input type="range" />
+            </div>
+            <div className="flex flex-col gap-1">
+              <label className="text-caption text-(--gray-11)">file</label>
+              <Input type="file" />
+            </div>
+          </div>
+        </div>
+
+        {/* Input Combinations */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            Input Combinations
+          </div>
+          <div className="flex flex-col gap-3">
+            <Input color="indigo" size="lg" placeholder="Indigo large input" />
+            <Input
+              color="cyan"
+              size="sm"
+              error
+              placeholder="Cyan small error input"
+            />
+            <Input
+              color="orange"
+              size="md"
+              disabled
+              placeholder="Orange disabled input"
+            />
           </div>
         </div>
       </div>
