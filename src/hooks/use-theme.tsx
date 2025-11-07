@@ -74,7 +74,7 @@ const getResolvedTheme = (theme: ThemeWithSystem): Theme => {
   return theme === 'system' ? getSystemTheme() : theme;
 };
 
-const applyThemeToDOM = (resolvedTheme: Theme, accent: HueName): void => {
+const applyToDOM = (resolvedTheme: Theme, accent: HueName): void => {
   if (!isBrowser()) return;
   document.documentElement.setAttribute('data-theme', resolvedTheme);
   document.documentElement.setAttribute('data-accent', accent);
@@ -93,7 +93,7 @@ export function ThemeProvider({
   const initialAccent = getStoredAccent(accentStorageKey) ?? defaultAccent;
 
   if (isBrowser()) {
-    applyThemeToDOM(initialResolvedTheme, initialAccent);
+    applyToDOM(initialResolvedTheme, initialAccent);
   }
 
   const [theme, setThemeState] = useState<ThemeWithSystem>(initialTheme);
@@ -104,7 +104,7 @@ export function ThemeProvider({
   const updateResolvedTheme = (newTheme: ThemeWithSystem) => {
     const resolved = getResolvedTheme(newTheme);
     setResolvedTheme(resolved);
-    applyThemeToDOM(resolved, accent);
+    applyToDOM(resolved, accent);
   };
 
   const setTheme = (newTheme: ThemeWithSystem) => {
@@ -116,7 +116,7 @@ export function ThemeProvider({
   const setAccent = (color: HueName) => {
     setAccentState(color);
     storage.set(accentStorageKey, color);
-    applyThemeToDOM(resolvedTheme, color);
+    applyToDOM(resolvedTheme, color);
   };
 
   const toggleTheme = () => {
@@ -135,7 +135,7 @@ export function ThemeProvider({
       if (theme === 'system') {
         const newResolved = e.matches ? 'dark' : 'light';
         setResolvedTheme(newResolved);
-        applyThemeToDOM(newResolved, accent);
+        applyToDOM(newResolved, accent);
       }
     };
 

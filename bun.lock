@@ -4,6 +4,7 @@
     "": {
       "name": "ui-kit",
       "dependencies": {
+        "@storybook/addon-themes": "^10.0.5",
         "@storybook/react-vite": "^9.1.9",
         "@tabler/icons-react": "^3.35.0",
         "@tailwindcss/vite": "^4.0.6",
@@ -251,6 +252,8 @@
     "@solid-primitives/static-store": ["@solid-primitives/static-store@0.1.2", "", { "dependencies": { "@solid-primitives/utils": "^6.3.2" }, "peerDependencies": { "solid-js": "^1.6.12" } }, "sha512-ReK+5O38lJ7fT+L6mUFvUr6igFwHBESZF+2Ug842s7fvlVeBdIVEdTCErygff6w7uR6+jrr7J8jQo+cYrEq4Iw=="],
 
     "@solid-primitives/utils": ["@solid-primitives/utils@6.3.2", "", { "peerDependencies": { "solid-js": "^1.6.12" } }, "sha512-hZ/M/qr25QOCcwDPOHtGjxTD8w2mNyVAYvcfgwzBHq2RwNqHNdDNsMZYap20+ruRwW4A3Cdkczyoz0TSxLCAPQ=="],
+
+    "@storybook/addon-themes": ["@storybook/addon-themes@10.0.5", "", { "dependencies": { "ts-dedent": "^2.0.0" }, "peerDependencies": { "storybook": "^10.0.5" } }, "sha512-oF40nsNGwzO/SGvv/pq+zqOKltpwzGthhq8s+QMpu5gnFWdjv3wZhF/pBqp9OetQv/yBv1T2KX9k7x0ReHfJDQ=="],
 
     "@storybook/builder-vite": ["@storybook/builder-vite@9.1.16", "", { "dependencies": { "@storybook/csf-plugin": "9.1.16", "ts-dedent": "^2.0.0" }, "peerDependencies": { "storybook": "^9.1.16", "vite": "^5.0.0 || ^6.0.0 || ^7.0.0" } }, "sha512-CyvYA5w1BKeSVaRavKi+euWxLffshq0v9Rz/5E9MKCitbYtjwkDH6UMIYmcbTs906mEBuYqrbz3nygDP0ppodw=="],
 

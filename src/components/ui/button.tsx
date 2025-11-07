@@ -1,52 +1,85 @@
 import React from 'react';
 
 import type { IconProps } from '@tabler/icons-react';
-import { type VariantProps, tv } from 'tailwind-variants';
+import { type VariantProps } from 'tailwind-variants';
 
 import { Slot } from '@/components/slot';
 import { useTheme } from '@/hooks/use-theme';
 import type { HueName } from '@/styles/colors';
+import { tv } from '@/utils';
 
 import { isIconElement } from './icon';
 
 interface BaseButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: VariantProps<typeof baseButtonStyles>['variant'];
+  size?: VariantProps<typeof baseButtonStyles>['size'];
+  highContrast?: VariantProps<typeof baseButtonStyles>['highContrast'];
   color?: HueName;
   asChild?: boolean;
 }
 
 export interface ButtonProps extends BaseButtonProps {
-  size?: VariantProps<typeof buttonStyles>['size'];
   block?: boolean;
 }
 
 export interface IconButtonProps extends BaseButtonProps {
-  size?: VariantProps<typeof iconButtonStyles>['size'];
   children: React.ReactElement<IconProps>;
 }
 
 const baseButtonStyles = tv({
-  base: 'inline-flex items-center justify-center rounded-xl font-medium whitespace-nowrap transition-colors duration-150 select-none',
+  base: 'text-title-4 inline-flex items-center justify-center rounded-xl whitespace-nowrap transition-colors duration-150 select-none',
   variants: {
     variant: {
-      solid:
-        'bg-(--accent-9) text-(--accent-contrast) hover:bg-(--accent-10) active:bg-(--accent-11)',
+      solid: 'bg-(--accent-9) text-(--accent-contrast) hover:bg-(--accent-10)',
       soft: 'bg-(--accent-a3) text-(--accent-a11) hover:bg-(--accent-a4)',
       outline:
         'text-(--accent-a11) inset-ring inset-ring-(--accent-a8) hover:bg-(--accent-a2)',
       ghost: 'text-(--accent-a11) hover:bg-(--accent-a3)',
     },
+    size: {
+      sm: 'gap-1.5 text-sm',
+      md: 'gap-2',
+      lg: 'gap-2.5 text-lg',
+    },
+    highContrast: {
+      true: '',
+      false: '',
+    },
   },
+  compoundVariants: [
+    {
+      variant: 'solid',
+      highContrast: true,
+      class:
+        'bg-(--accent-12) text-(--gray-1) hover:bg-(--accent-12) hover:filter-(--filter-hover)',
+    },
+    {
+      variant: 'soft',
+      highContrast: true,
+      class: 'text-(--accent-12)',
+    },
+    {
+      variant: 'outline',
+      highContrast: true,
+      class:
+        'text-(--accent-12) inset-ring-(--accent-12) hover:bg-(--accent-a2)',
+    },
+    {
+      variant: 'ghost',
+      highContrast: true,
+      class: 'text-(--accent-12)',
+    },
+  ],
 });
 
 const buttonStyles = tv({
   extend: baseButtonStyles,
   variants: {
     size: {
-      sm: 'gap-1.5 px-3 py-2 text-sm',
-      md: 'gap-2 px-3.5 py-2 text-base',
-      lg: 'gap-2.5 px-4 py-2.5 text-lg',
+      sm: 'px-3 py-2',
+      md: 'px-3.5 py-2',
+      lg: 'px-4 py-2.5',
     },
     block: {
       true: 'w-full',
@@ -70,6 +103,7 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'solid',
   size = 'md',
   color,
+  highContrast = false,
   block = false,
   asChild = false,
   className,
@@ -93,6 +127,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={buttonStyles({
         size,
         variant,
+        highContrast,
         block,
         className,
       })}
@@ -107,6 +142,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   variant = 'solid',
   size = 'md',
   color,
+  highContrast = false,
   asChild = false,
   className,
   children,
@@ -135,7 +171,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   return (
     <Comp
       data-accent={color ?? accent}
-      className={iconButtonStyles({ size, variant, className })}
+      className={iconButtonStyles({ size, variant, highContrast, className })}
       {...props}
     >
       {processedChildren}
