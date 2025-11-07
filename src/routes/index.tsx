@@ -4,8 +4,6 @@ import { createFileRoute } from '@tanstack/react-router';
 
 import { SunIcon } from '@/assets';
 import { Button, IconButton } from '@/components';
-import { Input } from '@/components/ui/input';
-import { useInteractiveState } from '@/hooks/use-interactive-state';
 import { useTheme } from '@/hooks/use-theme';
 import { type HueName, hueNames } from '@/styles/colors';
 import { cn } from '@/utils/cn';
@@ -52,16 +50,30 @@ function App() {
             ))}
           </select>
         </div>
-        <div className="flex justify-start gap-4">
+        <Button block>Block</Button>
+        <div className="flex items-start justify-start gap-4">
           <Button variant="solid">Solid</Button>
           <Button variant="soft">Soft</Button>
           <Button variant="outline">Outline</Button>
           <Button variant="ghost">Ghost</Button>
-          <IconButton>
+          <Button variant="solid">Solid</Button>
+          <Button size="lg">
+            <SunIcon /> Large
+          </Button>
+          <Button>
+            <SunIcon /> Medium
+          </Button>
+          <Button>
+            Medium <SunIcon />
+          </Button>
+          <Button size="sm">
+            <SunIcon /> Small
+          </Button>
+          <IconButton size="sm">
             <SunIcon />
           </IconButton>
         </div>
-        <div className="flex justify-start gap-4">
+        <div className="flex items-start justify-start gap-4">
           <Button color="indigo" variant="soft">
             Indigo
           </Button>
@@ -75,25 +87,7 @@ function App() {
             Crimson
           </Button>
         </div>
-        <div className="flex justify-start gap-4">
-          <Input placeholder="Input" />
-          <Input error placeholder="Error" />
-        </div>
-        <DemoInteractiveButton />
       </div>
     </div>
-  );
-}
-
-function DemoInteractiveButton() {
-  const { state, eventHandlers } = useInteractiveState();
-  const label = `${state.hover ? 'hover' : 'default'} | ${state.active || 'inactive'} | ${state.focus || 'blurred'}`;
-  return (
-    <button
-      className="rounded border border-gray-300 px-4 py-2 font-mono text-sm"
-      {...eventHandlers}
-    >
-      {label}
-    </button>
   );
 }
