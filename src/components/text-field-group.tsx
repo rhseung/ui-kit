@@ -35,12 +35,13 @@ export const textFieldGroupStyles = tv({
     {
       variant: 'underline',
       error: true,
-      class: 'border-(--red-11) has-focus:border-(--accent-8)',
+      class: 'border-b-2 border-(--red-11) has-focus:border-(--accent-8)',
     },
     {
       variant: 'underline',
       error: false,
-      class: 'border-(--gray-a7) has-focus:border-(--accent-8)',
+      class:
+        'border-(--gray-a7) has-focus:border-b-2 has-focus:border-(--accent-8)',
     },
   ],
 });
@@ -119,7 +120,7 @@ const InnerTextField = React.forwardRef<
       error={error}
       disabled={disabled}
       className={cn(
-        'rounded-none border-0 p-0 inset-ring-0 focus:inset-ring-0',
+        'rounded-none border-0 p-0 inset-ring-0 focus:border-0 focus:inset-ring-0',
         className,
       )}
       {...props}
