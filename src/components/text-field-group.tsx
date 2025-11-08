@@ -10,21 +10,38 @@ import {
   textFieldStyles,
 } from './ui/text-field';
 
-// TODO: underline variant
 export const textFieldGroupStyles = tv({
   extend: textFieldStyles,
   base: 'flex items-center gap-2',
   variants: {
-    error: {
-      true: 'inset-ring-2 inset-ring-(--red-11)',
-      false:
-        'inset-ring inset-ring-(--gray-a7) has-focus:inset-ring-2 has-focus:inset-ring-(--accent-8)',
-    },
     disabled: {
       true: 'opacity-50',
       false: '',
     },
   },
+  compoundVariants: [
+    {
+      variant: 'surface',
+      error: true,
+      class: 'inset-ring-2 inset-ring-(--red-11)',
+    },
+    {
+      variant: 'surface',
+      error: false,
+      class:
+        'inset-ring inset-ring-(--gray-a7) has-focus:inset-ring-2 has-focus:inset-ring-(--accent-8)',
+    },
+    {
+      variant: 'underline',
+      error: true,
+      class: 'border-(--red-11)',
+    },
+    {
+      variant: 'underline',
+      error: false,
+      class: 'border-(--gray-a7) has-focus:border-(--accent-8)',
+    },
+  ],
 });
 
 export interface TextFieldGroupProps extends TextFieldProps {
@@ -32,6 +49,7 @@ export interface TextFieldGroupProps extends TextFieldProps {
 }
 
 const TextFieldGroupContext = createContext<TextFieldGroupProps>({
+  variant: 'surface',
   size: 'md',
   color: undefined,
   error: false,
@@ -41,6 +59,7 @@ const TextFieldGroupContext = createContext<TextFieldGroupProps>({
 const TextFieldGroup: React.FC<
   TextFieldGroupProps & Omit<React.ComponentProps<'div'>, 'data-accent'>
 > = ({
+  variant = 'surface',
   size = 'md',
   color,
   error = false,
@@ -60,11 +79,12 @@ const TextFieldGroup: React.FC<
 
   return (
     <TextFieldGroupContext.Provider
-      value={{ size, color: computedColor, error, disabled }}
+      value={{ variant, size, color: computedColor, error, disabled }}
     >
       <div
         data-accent={computedColor}
         className={textFieldGroupStyles({
+          variant,
           size,
           error,
           disabled,
@@ -82,20 +102,23 @@ const InnerTextField = React.forwardRef<
   HTMLInputElement,
   Omit<
     TextFieldProps & React.ComponentProps<'input'>,
-    'size' | 'color' | 'disabled' | 'data-accent'
+    'size' | 'color' | 'disabled' | 'variant' | 'data-accent'
   >
 >(({ className, ...props }, ref) => {
-  const { size, color, error, disabled } = useContext(TextFieldGroupContext);
+  const { variant, size, color, error, disabled } = useContext(
+    TextFieldGroupContext,
+  );
 
   return (
     <TextField
       ref={ref}
+      variant={variant}
       size={size}
       color={color}
       error={error}
       disabled={disabled}
       className={cn(
-        'rounded-none border-none p-0 inset-ring-0 focus:inset-ring-0',
+        'rounded-none border-0 p-0 inset-ring-0 focus:inset-ring-0',
         className,
       )}
       {...props}

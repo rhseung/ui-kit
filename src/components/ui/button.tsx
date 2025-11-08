@@ -27,7 +27,7 @@ export interface IconButtonProps extends BaseButtonProps {
 }
 
 const baseButtonStyles = tv({
-  base: 'text-title-4 inline-flex items-center justify-center rounded-xl whitespace-nowrap transition-colors duration-150 select-none',
+  base: 'text-title-4 inline-flex items-center justify-center rounded-lg whitespace-nowrap transition-colors duration-150 select-none',
   variants: {
     variant: {
       solid: 'bg-(--accent-9) text-(--accent-contrast) hover:bg-(--accent-10)',

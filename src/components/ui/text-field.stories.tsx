@@ -5,7 +5,7 @@ import { ThemeProvider } from '@/hooks/use-theme';
 import { hueNames } from '@/styles/colors';
 
 const meta: Meta<typeof TextField> = {
-  title: 'Components/Input',
+  title: 'Components/TextField',
   component: TextField,
   decorators: [
     (Story) => (
@@ -18,6 +18,10 @@ const meta: Meta<typeof TextField> = {
   ],
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['surface', 'underline'],
+    },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
@@ -46,6 +50,106 @@ export const Default: Story = {
   },
 };
 
+// Variants
+export const Variants: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <TextField variant="surface" placeholder="Surface variant" />
+      <TextField variant="underline" placeholder="Underline variant" />
+    </div>
+  ),
+};
+
+// Variants × Sizes
+export const VariantsXSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextField variant="surface" size="sm" placeholder="Surface small" />
+          <TextField variant="surface" size="md" placeholder="Surface medium" />
+          <TextField variant="surface" size="lg" placeholder="Surface large" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextField
+            variant="underline"
+            size="sm"
+            placeholder="Underline small"
+          />
+          <TextField
+            variant="underline"
+            size="md"
+            placeholder="Underline medium"
+          />
+          <TextField
+            variant="underline"
+            size="lg"
+            placeholder="Underline large"
+          />
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+// Variants × States
+export const VariantsXStates: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextField variant="surface" placeholder="Normal" />
+          <TextField variant="surface" error placeholder="Error" />
+          <TextField variant="surface" disabled placeholder="Disabled" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextField variant="underline" placeholder="Normal" />
+          <TextField variant="underline" error placeholder="Error" />
+          <TextField variant="underline" disabled placeholder="Disabled" />
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+// Variants × Colors
+export const VariantsXColors: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextField variant="surface" color="indigo" placeholder="Indigo" />
+          <TextField variant="surface" color="cyan" placeholder="Cyan" />
+          <TextField variant="surface" color="orange" placeholder="Orange" />
+          <TextField variant="surface" color="crimson" placeholder="Crimson" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextField variant="underline" color="indigo" placeholder="Indigo" />
+          <TextField variant="underline" color="cyan" placeholder="Cyan" />
+          <TextField variant="underline" color="orange" placeholder="Orange" />
+          <TextField
+            variant="underline"
+            color="crimson"
+            placeholder="Crimson"
+          />
+        </div>
+      </div>
+    </div>
+  ),
+};
+
 // Sizes
 export const Sizes: Story = {
   render: () => (
@@ -61,10 +165,15 @@ export const Sizes: Story = {
 export const States: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextField placeholder="Normal input" />
-      <TextField placeholder="Error input" error />
-      <TextField placeholder="Disabled input" disabled />
-      <TextField placeholder="Readonly input" readOnly value="Readonly value" />
+      <TextField variant="surface" placeholder="Normal input" />
+      <TextField variant="surface" placeholder="Error input" error />
+      <TextField variant="surface" placeholder="Disabled input" disabled />
+      <TextField
+        variant="surface"
+        placeholder="Readonly input"
+        readOnly
+        value="Readonly value"
+      />
     </div>
   ),
 };
@@ -73,14 +182,18 @@ export const States: Story = {
 export const Colors: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextField color="indigo" placeholder="Indigo input" />
-      <TextField color="cyan" placeholder="Cyan input" />
-      <TextField color="orange" placeholder="Orange input" />
-      <TextField color="crimson" placeholder="Crimson input" />
-      <TextField color="green" placeholder="Green input" />
-      <TextField color="purple" placeholder="Purple input" />
-      <TextField color="pink" placeholder="Pink input" />
-      <TextField color="blue" placeholder="Blue input" />
+      <TextField variant="surface" color="indigo" placeholder="Indigo input" />
+      <TextField variant="surface" color="cyan" placeholder="Cyan input" />
+      <TextField variant="surface" color="orange" placeholder="Orange input" />
+      <TextField
+        variant="surface"
+        color="crimson"
+        placeholder="Crimson input"
+      />
+      <TextField variant="surface" color="green" placeholder="Green input" />
+      <TextField variant="surface" color="purple" placeholder="Purple input" />
+      <TextField variant="surface" color="pink" placeholder="Pink input" />
+      <TextField variant="surface" color="blue" placeholder="Blue input" />
     </div>
   ),
 };
@@ -160,25 +273,70 @@ export const ColorsXSizes: Story = {
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Small</h3>
         <div className="flex flex-col gap-2">
-          <TextField color="indigo" size="sm" placeholder="Indigo small" />
-          <TextField color="cyan" size="sm" placeholder="Cyan small" />
-          <TextField color="orange" size="sm" placeholder="Orange small" />
+          <TextField
+            variant="surface"
+            color="indigo"
+            size="sm"
+            placeholder="Indigo small"
+          />
+          <TextField
+            variant="surface"
+            color="cyan"
+            size="sm"
+            placeholder="Cyan small"
+          />
+          <TextField
+            variant="surface"
+            color="orange"
+            size="sm"
+            placeholder="Orange small"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Medium</h3>
         <div className="flex flex-col gap-2">
-          <TextField color="indigo" size="md" placeholder="Indigo medium" />
-          <TextField color="cyan" size="md" placeholder="Cyan medium" />
-          <TextField color="orange" size="md" placeholder="Orange medium" />
+          <TextField
+            variant="surface"
+            color="indigo"
+            size="md"
+            placeholder="Indigo medium"
+          />
+          <TextField
+            variant="surface"
+            color="cyan"
+            size="md"
+            placeholder="Cyan medium"
+          />
+          <TextField
+            variant="surface"
+            color="orange"
+            size="md"
+            placeholder="Orange medium"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Large</h3>
         <div className="flex flex-col gap-2">
-          <TextField color="indigo" size="lg" placeholder="Indigo large" />
-          <TextField color="cyan" size="lg" placeholder="Cyan large" />
-          <TextField color="orange" size="lg" placeholder="Orange large" />
+          <TextField
+            variant="surface"
+            color="indigo"
+            size="lg"
+            placeholder="Indigo large"
+          />
+          <TextField
+            variant="surface"
+            color="cyan"
+            size="lg"
+            placeholder="Cyan large"
+          />
+          <TextField
+            variant="surface"
+            color="orange"
+            size="lg"
+            placeholder="Orange large"
+          />
         </div>
       </div>
     </div>
@@ -192,17 +350,47 @@ export const StatesXColors: Story = {
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Error States</h3>
         <div className="flex flex-col gap-2">
-          <TextField color="indigo" error placeholder="Indigo error" />
-          <TextField color="cyan" error placeholder="Cyan error" />
-          <TextField color="crimson" error placeholder="Crimson error" />
+          <TextField
+            variant="surface"
+            color="indigo"
+            error
+            placeholder="Indigo error"
+          />
+          <TextField
+            variant="surface"
+            color="cyan"
+            error
+            placeholder="Cyan error"
+          />
+          <TextField
+            variant="surface"
+            color="crimson"
+            error
+            placeholder="Crimson error"
+          />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Disabled States</h3>
         <div className="flex flex-col gap-2">
-          <TextField color="indigo" disabled placeholder="Indigo disabled" />
-          <TextField color="cyan" disabled placeholder="Cyan disabled" />
-          <TextField color="orange" disabled placeholder="Orange disabled" />
+          <TextField
+            variant="surface"
+            color="indigo"
+            disabled
+            placeholder="Indigo disabled"
+          />
+          <TextField
+            variant="surface"
+            color="cyan"
+            disabled
+            placeholder="Cyan disabled"
+          />
+          <TextField
+            variant="surface"
+            color="orange"
+            disabled
+            placeholder="Orange disabled"
+          />
         </div>
       </div>
     </div>
@@ -213,20 +401,41 @@ export const StatesXColors: Story = {
 export const Combinations: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextField color="indigo" size="lg" placeholder="Indigo large input" />
       <TextField
+        variant="surface"
+        color="indigo"
+        size="lg"
+        placeholder="Indigo large input"
+      />
+      <TextField
+        variant="surface"
         color="cyan"
         size="sm"
         error
         placeholder="Cyan small error input"
       />
       <TextField
+        variant="surface"
         color="orange"
         size="md"
         disabled
         placeholder="Orange disabled input"
       />
       <TextField
+        variant="underline"
+        color="green"
+        size="lg"
+        placeholder="Green underline large input"
+      />
+      <TextField
+        variant="underline"
+        color="purple"
+        size="md"
+        error
+        placeholder="Purple underline error input"
+      />
+      <TextField
+        variant="surface"
         color="green"
         size="lg"
         placeholder="Green large input"

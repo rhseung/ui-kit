@@ -19,6 +19,10 @@ const meta: Meta<typeof TextFieldGroup> = {
   ],
   tags: ['autodocs'],
   argTypes: {
+    variant: {
+      control: 'select',
+      options: ['surface', 'underline'],
+    },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg'],
@@ -52,19 +56,64 @@ export const Default: Story = {
 export const Basic: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextFieldGroup color="indigo">
-        <SearchIcon />
-        <TextFieldGroup.TextField placeholder="Search with icon" />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <TextFieldGroup.TextField placeholder="Weight" />
-        <span className="text-body text-(--gray-11)">kg</span>
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <SearchIcon />
-        <TextFieldGroup.TextField placeholder="Weight" />
-        <span className="text-body text-(--gray-11)">kg</span>
-      </TextFieldGroup>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface" color="indigo">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Search with icon" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <TextFieldGroup.TextField placeholder="Weight" />
+            <span className="text-body text-(--gray-11)">kg</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Weight" />
+            <span className="text-body text-(--gray-11)">kg</span>
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline" color="indigo">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Search with icon" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <TextFieldGroup.TextField placeholder="Weight" />
+            <span className="text-body text-(--gray-11)">kg</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Weight" />
+            <span className="text-body text-(--gray-11)">kg</span>
+          </TextFieldGroup>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+// Variants
+export const Variants: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <TextFieldGroup variant="surface">
+          <SearchIcon />
+          <TextFieldGroup.TextField placeholder="Surface variant" />
+        </TextFieldGroup>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <TextFieldGroup variant="underline">
+          <SearchIcon />
+          <TextFieldGroup.TextField placeholder="Underline variant" />
+        </TextFieldGroup>
+      </div>
     </div>
   ),
 };
@@ -145,23 +194,50 @@ export const States: Story = {
 export const Variations: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextFieldGroup>
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="0.00" />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <TextFieldGroup.TextField placeholder="Email" />
-        <span className="text-body text-(--gray-11)">@example.com</span>
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <span className="text-body text-(--gray-11)">https://</span>
-        <TextFieldGroup.TextField placeholder="example.com" />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <SunIcon />
-        <TextFieldGroup.TextField placeholder="With icon" />
-        <SunIcon />
-      </TextFieldGroup>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface">
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="0.00" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <TextFieldGroup.TextField placeholder="Email" />
+            <span className="text-body text-(--gray-11)">@example.com</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <span className="text-body text-(--gray-11)">https://</span>
+            <TextFieldGroup.TextField placeholder="example.com" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <SunIcon />
+            <TextFieldGroup.TextField placeholder="With icon" />
+            <SunIcon />
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline">
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="0.00" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <TextFieldGroup.TextField placeholder="Email" />
+            <span className="text-body text-(--gray-11)">@example.com</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <span className="text-body text-(--gray-11)">https://</span>
+            <TextFieldGroup.TextField placeholder="example.com" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <SunIcon />
+            <TextFieldGroup.TextField placeholder="With icon" />
+            <SunIcon />
+          </TextFieldGroup>
+        </div>
+      </div>
     </div>
   ),
 };
@@ -170,53 +246,110 @@ export const Variations: Story = {
 export const MultipleAdornments: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextFieldGroup>
-        <SearchIcon />
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="Two adornments on left" />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <TextFieldGroup.TextField placeholder="Two adornments on right" />
-        <span className="text-body text-(--gray-11)">kg</span>
-        <SearchIcon />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <SearchIcon />
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="Two on left, one on right" />
-        <span className="text-body text-(--gray-11)">USD</span>
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="One on left, two on right" />
-        <span className="text-body text-(--gray-11)">USD</span>
-        <SearchIcon />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <SearchIcon />
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="Three adornments total" />
-        <span className="text-body text-(--gray-11)">USD</span>
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <SearchIcon />
-        <SunIcon />
-        <TextFieldGroup.TextField placeholder="Two icons on left" />
-        <span className="text-body text-(--gray-11)">kg</span>
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <span className="text-body text-(--gray-11)">https://</span>
-        <TextFieldGroup.TextField placeholder="www.example.com" />
-        <span className="text-body text-(--gray-11)">.com</span>
-        <SearchIcon />
-      </TextFieldGroup>
-      <TextFieldGroup>
-        <SearchIcon />
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="Multiple adornments" />
-        <span className="text-body text-(--gray-11)">USD</span>
-        <SunIcon />
-      </TextFieldGroup>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Two adornments on left" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <TextFieldGroup.TextField placeholder="Two adornments on right" />
+            <span className="text-body text-(--gray-11)">kg</span>
+            <SearchIcon />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Two on left, one on right" />
+            <span className="text-body text-(--gray-11)">USD</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="One on left, two on right" />
+            <span className="text-body text-(--gray-11)">USD</span>
+            <SearchIcon />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Three adornments total" />
+            <span className="text-body text-(--gray-11)">USD</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <SunIcon />
+            <TextFieldGroup.TextField placeholder="Two icons on left" />
+            <span className="text-body text-(--gray-11)">kg</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <span className="text-body text-(--gray-11)">https://</span>
+            <TextFieldGroup.TextField placeholder="www.example.com" />
+            <span className="text-body text-(--gray-11)">.com</span>
+            <SearchIcon />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Multiple adornments" />
+            <span className="text-body text-(--gray-11)">USD</span>
+            <SunIcon />
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Two adornments on left" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <TextFieldGroup.TextField placeholder="Two adornments on right" />
+            <span className="text-body text-(--gray-11)">kg</span>
+            <SearchIcon />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Two on left, one on right" />
+            <span className="text-body text-(--gray-11)">USD</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="One on left, two on right" />
+            <span className="text-body text-(--gray-11)">USD</span>
+            <SearchIcon />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Three adornments total" />
+            <span className="text-body text-(--gray-11)">USD</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <SunIcon />
+            <TextFieldGroup.TextField placeholder="Two icons on left" />
+            <span className="text-body text-(--gray-11)">kg</span>
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <span className="text-body text-(--gray-11)">https://</span>
+            <TextFieldGroup.TextField placeholder="www.example.com" />
+            <span className="text-body text-(--gray-11)">.com</span>
+            <SearchIcon />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Multiple adornments" />
+            <span className="text-body text-(--gray-11)">USD</span>
+            <SunIcon />
+          </TextFieldGroup>
+        </div>
+      </div>
     </div>
   ),
 };
@@ -261,6 +394,132 @@ export const ColorsXSizes: Story = {
           <TextFieldGroup color="cyan" size="lg">
             <SearchIcon />
             <TextFieldGroup.TextField placeholder="Cyan large" />
+          </TextFieldGroup>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+// Variants × Sizes
+export const VariantsXSizes: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface" size="sm">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Surface small" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" size="md">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Surface medium" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" size="lg">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Surface large" />
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline" size="sm">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Underline small" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" size="md">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Underline medium" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" size="lg">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Underline large" />
+          </TextFieldGroup>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+// Variants × States
+export const VariantsXStates: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Surface normal" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" error>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Surface error" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" disabled>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Surface disabled" />
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Underline normal" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" error>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Underline error" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" disabled>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Underline disabled" />
+          </TextFieldGroup>
+        </div>
+      </div>
+    </div>
+  ),
+};
+
+// Variants × Colors
+export const VariantsXColors: Story = {
+  render: () => (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface" color="indigo">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Indigo" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" color="cyan">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Cyan" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" color="orange">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Orange" />
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline" color="indigo">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Indigo" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" color="cyan">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Cyan" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" color="orange">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Orange" />
           </TextFieldGroup>
         </div>
       </div>
@@ -314,24 +573,52 @@ export const StatesXColors: Story = {
 export const ComplexCombinations: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <TextFieldGroup color="indigo" size="lg">
-        <SearchIcon />
-        <TextFieldGroup.TextField placeholder="Indigo large with icon" />
-      </TextFieldGroup>
-      <TextFieldGroup color="cyan" size="sm" error>
-        <SearchIcon />
-        <TextFieldGroup.TextField placeholder="Cyan small error" />
-      </TextFieldGroup>
-      <TextFieldGroup color="orange" size="md" disabled>
-        <SearchIcon />
-        <TextFieldGroup.TextField placeholder="Orange disabled" />
-      </TextFieldGroup>
-      <TextFieldGroup color="green" size="lg">
-        <SearchIcon />
-        <span className="text-body text-(--gray-11)">$</span>
-        <TextFieldGroup.TextField placeholder="Green with multiple adornments" />
-        <span className="text-body text-(--gray-11)">USD</span>
-      </TextFieldGroup>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Surface</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="surface" color="indigo" size="lg">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Indigo large with icon" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" color="cyan" size="sm" error>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Cyan small error" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" color="orange" size="md" disabled>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Orange disabled" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="surface" color="green" size="lg">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Green with multiple adornments" />
+            <span className="text-body text-(--gray-11)">USD</span>
+          </TextFieldGroup>
+        </div>
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-sm font-semibold">Underline</h3>
+        <div className="flex flex-col gap-2">
+          <TextFieldGroup variant="underline" color="indigo" size="lg">
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Indigo large with icon" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" color="cyan" size="sm" error>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Cyan small error" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" color="orange" size="md" disabled>
+            <SearchIcon />
+            <TextFieldGroup.TextField placeholder="Orange disabled" />
+          </TextFieldGroup>
+          <TextFieldGroup variant="underline" color="green" size="lg">
+            <SearchIcon />
+            <span className="text-body text-(--gray-11)">$</span>
+            <TextFieldGroup.TextField placeholder="Green with multiple adornments" />
+            <span className="text-body text-(--gray-11)">USD</span>
+          </TextFieldGroup>
+        </div>
+      </div>
     </div>
   ),
 };
