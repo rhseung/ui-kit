@@ -23,25 +23,22 @@ export const textFieldGroupStyles = tv({
     {
       variant: 'surface',
       error: true,
-      class:
-        'inset-ring-2 inset-ring-(--red-11) has-focus:inset-ring-(--accent-8)',
+      class: 'has-focus:inset-ring-(--accent-8)',
     },
     {
       variant: 'surface',
       error: false,
-      class:
-        'inset-ring inset-ring-(--gray-a7) has-focus:inset-ring-2 has-focus:inset-ring-(--accent-8)',
+      class: 'has-focus:inset-ring-2 has-focus:inset-ring-(--accent-8)',
     },
     {
       variant: 'underline',
       error: true,
-      class: 'border-b-2 border-(--red-11) has-focus:border-(--accent-8)',
+      class: 'has-focus:border-(--accent-8)',
     },
     {
       variant: 'underline',
       error: false,
-      class:
-        'border-(--gray-a7) has-focus:border-b-2 has-focus:border-(--accent-8)',
+      class: 'has-focus:border-b-2 has-focus:border-(--accent-8)',
     },
   ],
 });
