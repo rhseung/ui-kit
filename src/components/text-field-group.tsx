@@ -117,7 +117,7 @@ const InnerTextField = React.forwardRef<
       error={error}
       disabled={disabled}
       className={cn(
-        'rounded-none border-0 p-0 inset-ring-0 focus:border-0 focus:inset-ring-0',
+        'rounded-none border-0 p-0 inset-ring-0 focus:border-0 focus:inset-ring-0 disabled:opacity-100',
         className,
       )}
       {...props}
