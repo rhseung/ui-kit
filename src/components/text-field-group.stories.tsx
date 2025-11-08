@@ -12,7 +12,6 @@ const meta: Meta<typeof TextFieldGroup> = {
     (Story) => (
       <ThemeProvider defaultAccent="blue">
         <div className="p-8">
-          1
           <Story />
         </div>
       </ThemeProvider>
