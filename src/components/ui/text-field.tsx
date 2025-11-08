@@ -6,14 +6,13 @@ import { useTheme } from '@/hooks/use-theme';
 import type { HueName } from '@/styles/colors';
 import { tv } from '@/utils';
 
-// TODO: input type에 따라 return <PasswordInput />, <SearchInput />, <EmailInput />, <NumberInput />, <TelInput />, <UrlInput />, <DateInput />, <TimeInput />, <DateTimeInput />, <MonthInput />, <WeekInput />, <ColorInput />, <RangeInput />, <FileInput /> 등을 반환하도록 수정
-export interface InputProps {
-  size?: VariantProps<typeof inputStyles>['size'];
+export interface TextFieldProps {
+  size?: VariantProps<typeof textFieldStyles>['size'];
   color?: HueName;
-  error?: VariantProps<typeof inputStyles>['error'];
+  error?: VariantProps<typeof textFieldStyles>['error'];
 }
 
-export const inputStyles = tv({
+export const textFieldStyles = tv({
   base: 'text-body w-full rounded-xl border-none px-3.5 text-(--gray-12) shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none',
   variants: {
     size: {
@@ -29,11 +28,9 @@ export const inputStyles = tv({
   },
 });
 
-// TODO: input type 디자인 전부 고려 (ex. number, search, date, time, datetime-local, month, week, color, range, file)
-
-export const Input = React.forwardRef<
+export const TextField = React.forwardRef<
   HTMLInputElement,
-  InputProps & Omit<React.ComponentProps<'input'>, 'size'>
+  TextFieldProps & Omit<React.ComponentProps<'input'>, 'size' | 'data-accent'>
 >(({ size = 'md', color, error = false, className, ...props }, ref) => {
   const { accent } = useTheme();
 
@@ -41,7 +38,7 @@ export const Input = React.forwardRef<
     <input
       ref={ref}
       data-accent={color ?? accent}
-      className={inputStyles({ size, error, className })}
+      className={textFieldStyles({ size, error, className })}
       {...props}
     />
   );

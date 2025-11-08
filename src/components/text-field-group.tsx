@@ -4,21 +4,26 @@ import { useTheme } from '@/hooks/use-theme';
 import { cn, tv } from '@/utils';
 
 import { isIconElement } from './ui/icon';
-import { Input, type InputProps, inputStyles } from './ui/input';
+import {
+  TextField,
+  type TextFieldProps,
+  textFieldStyles,
+} from './ui/text-field';
 
-export interface InputGroupProps extends InputProps {
+export interface TextFieldGroupProps extends TextFieldProps {
   disabled?: boolean;
 }
 
-const InputGroupContext = createContext<InputGroupProps>({
+const TextFieldGroupContext = createContext<TextFieldGroupProps>({
   size: 'md',
   color: undefined,
   error: false,
   disabled: false,
 });
 
-export const inputGroupStyles = tv({
-  extend: inputStyles,
+// TODO: underline variant
+export const textFieldGroupStyles = tv({
+  extend: textFieldStyles,
   base: 'flex items-center gap-2',
   variants: {
     error: {
@@ -33,8 +38,8 @@ export const inputGroupStyles = tv({
   },
 });
 
-const InputGroupImpl: React.FC<
-  InputGroupProps & React.ComponentProps<'div'>
+const TextFieldGroup: React.FC<
+  TextFieldGroupProps & Omit<React.ComponentProps<'div'>, 'data-accent'>
 > = ({
   size = 'md',
   color,
@@ -54,12 +59,12 @@ const InputGroupImpl: React.FC<
   );
 
   return (
-    <InputGroupContext.Provider
+    <TextFieldGroupContext.Provider
       value={{ size, color: computedColor, error, disabled }}
     >
       <div
         data-accent={computedColor}
-        className={inputGroupStyles({
+        className={textFieldGroupStyles({
           size,
           error,
           disabled,
@@ -69,21 +74,21 @@ const InputGroupImpl: React.FC<
       >
         {processedChildren}
       </div>
-    </InputGroupContext.Provider>
+    </TextFieldGroupContext.Provider>
   );
 };
 
-const InputGroupInput = React.forwardRef<
+const InnerTextField = React.forwardRef<
   HTMLInputElement,
   Omit<
-    InputProps & React.ComponentProps<'input'>,
-    'size' | 'type' | 'data-accent' | 'color' | 'disabled'
+    TextFieldProps & React.ComponentProps<'input'>,
+    'size' | 'color' | 'disabled' | 'data-accent'
   >
 >(({ className, ...props }, ref) => {
-  const { size, color, error, disabled } = useContext(InputGroupContext);
+  const { size, color, error, disabled } = useContext(TextFieldGroupContext);
 
   return (
-    <Input
+    <TextField
       ref={ref}
       size={size}
       color={color}
@@ -98,6 +103,8 @@ const InputGroupInput = React.forwardRef<
   );
 });
 
-export const InputGroup = Object.assign(InputGroupImpl, {
-  Input: InputGroupInput,
+const TextFieldGroupImpl = Object.assign(TextFieldGroup, {
+  TextField: InnerTextField,
 });
+
+export { TextFieldGroupImpl as TextFieldGroup };

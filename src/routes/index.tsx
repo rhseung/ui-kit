@@ -3,7 +3,7 @@ import 'react';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { SearchIcon, SunIcon } from '@/assets';
-import { Button, IconButton, Input, InputGroup } from '@/components';
+import { Button, IconButton, TextField, TextFieldGroup } from '@/components';
 import { useTheme } from '@/hooks/use-theme';
 import { type HueName, hueNames } from '@/styles/colors';
 import { cn } from '@/utils/cn';
@@ -171,9 +171,9 @@ function App() {
             Input
           </div>
           <div className="flex flex-col gap-3">
-            <Input placeholder="Default input" />
-            <Input placeholder="Small input" size="sm" />
-            <Input placeholder="Large input" size="lg" />
+            <TextField placeholder="Default input" />
+            <TextField placeholder="Small input" size="sm" />
+            <TextField placeholder="Large input" size="lg" />
           </div>
         </div>
 
@@ -183,9 +183,9 @@ function App() {
             Input Sizes
           </div>
           <div className="flex flex-col gap-3">
-            <Input size="sm" placeholder="Small input" />
-            <Input size="md" placeholder="Medium input" />
-            <Input size="lg" placeholder="Large input" />
+            <TextField size="sm" placeholder="Small input" />
+            <TextField size="md" placeholder="Medium input" />
+            <TextField size="lg" placeholder="Large input" />
           </div>
         </div>
 
@@ -195,10 +195,10 @@ function App() {
             Input States
           </div>
           <div className="flex flex-col gap-3">
-            <Input placeholder="Normal input" />
-            <Input placeholder="Error input" error />
-            <Input placeholder="Disabled input" disabled />
-            <Input
+            <TextField placeholder="Normal input" />
+            <TextField placeholder="Error input" error />
+            <TextField placeholder="Disabled input" disabled />
+            <TextField
               placeholder="Readonly input"
               readOnly
               value="Readonly value"
@@ -212,12 +212,12 @@ function App() {
             Input Colors
           </div>
           <div className="flex flex-col gap-3">
-            <Input color="indigo" placeholder="Indigo input" />
-            <Input color="cyan" placeholder="Cyan input" />
-            <Input color="orange" placeholder="Orange input" />
-            <Input color="crimson" placeholder="Crimson input" />
-            <Input color="green" placeholder="Green input" />
-            <Input color="purple" placeholder="Purple input" />
+            <TextField color="indigo" placeholder="Indigo input" />
+            <TextField color="cyan" placeholder="Cyan input" />
+            <TextField color="orange" placeholder="Orange input" />
+            <TextField color="crimson" placeholder="Crimson input" />
+            <TextField color="green" placeholder="Green input" />
+            <TextField color="purple" placeholder="Purple input" />
           </div>
         </div>
 
@@ -229,65 +229,65 @@ function App() {
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">text</label>
-              <Input type="text" placeholder="Text input" />
+              <TextField type="text" placeholder="Text input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">email</label>
-              <Input type="email" placeholder="Email input" />
+              <TextField type="email" placeholder="Email input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">password</label>
-              <Input type="password" placeholder="Password input" />
+              <TextField type="password" placeholder="Password input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">number</label>
-              <Input type="number" placeholder="Number input" />
+              <TextField type="number" placeholder="Number input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">search</label>
-              <Input type="search" placeholder="Search input" />
+              <TextField type="search" placeholder="Search input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">tel</label>
-              <Input type="tel" placeholder="Tel input" />
+              <TextField type="tel" placeholder="Tel input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">url</label>
-              <Input type="url" placeholder="URL input" />
+              <TextField type="url" placeholder="URL input" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">date</label>
-              <Input type="date" />
+              <TextField type="date" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">time</label>
-              <Input type="time" />
+              <TextField type="time" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">
                 datetime-local
               </label>
-              <Input type="datetime-local" />
+              <TextField type="datetime-local" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">month</label>
-              <Input type="month" />
+              <TextField type="month" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">week</label>
-              <Input type="week" />
+              <TextField type="week" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">color</label>
-              <Input type="color" />
+              <TextField type="color" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">range</label>
-              <Input type="range" />
+              <TextField type="range" />
             </div>
             <div className="flex flex-col gap-1">
               <label className="text-caption text-(--gray-11)">file</label>
-              <Input type="file" />
+              <TextField type="file" />
             </div>
           </div>
         </div>
@@ -298,14 +298,18 @@ function App() {
             Input Combinations
           </div>
           <div className="flex flex-col gap-3">
-            <Input color="indigo" size="lg" placeholder="Indigo large input" />
-            <Input
+            <TextField
+              color="indigo"
+              size="lg"
+              placeholder="Indigo large input"
+            />
+            <TextField
               color="cyan"
               size="sm"
               error
               placeholder="Cyan small error input"
             />
-            <Input
+            <TextField
               color="orange"
               size="md"
               disabled
@@ -314,170 +318,170 @@ function App() {
           </div>
         </div>
 
-        {/* InputGroup */}
+        {/* TextFieldGroup */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            InputGroup
+            TextFieldGroup
           </div>
           <div className="flex flex-col gap-3">
-            <InputGroup color="indigo">
+            <TextFieldGroup color="indigo">
               <SearchIcon />
-              <InputGroup.Input placeholder="Search with icon" />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Input placeholder="Weight" />
+              <TextFieldGroup.TextField placeholder="Search with icon" />
+            </TextFieldGroup>
+            <TextFieldGroup>
+              <TextFieldGroup.TextField placeholder="Weight" />
               <span className="text-body text-(--gray-11)">kg</span>
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <SearchIcon />
-              <InputGroup.Input placeholder="Weight" />
+              <TextFieldGroup.TextField placeholder="Weight" />
               <span className="text-body text-(--gray-11)">kg</span>
-            </InputGroup>
+            </TextFieldGroup>
           </div>
         </div>
 
-        {/* InputGroup Sizes */}
+        {/* TextFieldGroup Sizes */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            InputGroup Sizes
+            TextFieldGroup Sizes
           </div>
           <div className="flex flex-col gap-3">
-            <InputGroup size="sm">
+            <TextFieldGroup size="sm">
               <SearchIcon />
-              <InputGroup.Input placeholder="Small input" />
-            </InputGroup>
-            <InputGroup size="md">
+              <TextFieldGroup.TextField placeholder="Small input" />
+            </TextFieldGroup>
+            <TextFieldGroup size="md">
               <SearchIcon />
-              <InputGroup.Input placeholder="Medium input" />
-            </InputGroup>
-            <InputGroup size="lg">
+              <TextFieldGroup.TextField placeholder="Medium input" />
+            </TextFieldGroup>
+            <TextFieldGroup size="lg">
               <SearchIcon />
-              <InputGroup.Input placeholder="Large input" />
-            </InputGroup>
+              <TextFieldGroup.TextField placeholder="Large input" />
+            </TextFieldGroup>
           </div>
         </div>
 
-        {/* InputGroup with Colors */}
+        {/* TextFieldGroup with Colors */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            InputGroup Colors
+            TextFieldGroup Colors
           </div>
           <div className="flex flex-col gap-3">
-            <InputGroup color="indigo">
+            <TextFieldGroup color="indigo">
               <SearchIcon />
-              <InputGroup.Input placeholder="Indigo input" />
-            </InputGroup>
-            <InputGroup color="cyan">
+              <TextFieldGroup.TextField placeholder="Indigo input" />
+            </TextFieldGroup>
+            <TextFieldGroup color="cyan">
               <SearchIcon />
-              <InputGroup.Input placeholder="Cyan input" />
-            </InputGroup>
-            <InputGroup color="orange">
+              <TextFieldGroup.TextField placeholder="Cyan input" />
+            </TextFieldGroup>
+            <TextFieldGroup color="orange">
               <SearchIcon />
-              <InputGroup.Input placeholder="Orange input" />
-            </InputGroup>
+              <TextFieldGroup.TextField placeholder="Orange input" />
+            </TextFieldGroup>
           </div>
         </div>
 
-        {/* InputGroup States */}
+        {/* TextFieldGroup States */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            InputGroup States
+            TextFieldGroup States
           </div>
           <div className="flex flex-col gap-3">
-            <InputGroup>
+            <TextFieldGroup>
               <SearchIcon />
-              <InputGroup.Input placeholder="Normal input" />
-            </InputGroup>
-            <InputGroup error>
+              <TextFieldGroup.TextField placeholder="Normal input" />
+            </TextFieldGroup>
+            <TextFieldGroup error>
               <SearchIcon />
-              <InputGroup.Input placeholder="Error input" />
-            </InputGroup>
-            <InputGroup disabled>
+              <TextFieldGroup.TextField placeholder="Error input" />
+            </TextFieldGroup>
+            <TextFieldGroup disabled>
               <SearchIcon />
-              <InputGroup.Input placeholder="Disabled input" />
-            </InputGroup>
+              <TextFieldGroup.TextField placeholder="Disabled input" />
+            </TextFieldGroup>
           </div>
         </div>
 
-        {/* InputGroup Variations */}
+        {/* TextFieldGroup Variations */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            InputGroup Variations
+            TextFieldGroup Variations
           </div>
           <div className="flex flex-col gap-3">
-            <InputGroup>
+            <TextFieldGroup>
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroup.Input placeholder="0.00" />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Input placeholder="Email" />
+              <TextFieldGroup.TextField placeholder="0.00" />
+            </TextFieldGroup>
+            <TextFieldGroup>
+              <TextFieldGroup.TextField placeholder="Email" />
               <span className="text-body text-(--gray-11)">@example.com</span>
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <span className="text-body text-(--gray-11)">https://</span>
-              <InputGroup.Input placeholder="example.com" />
-            </InputGroup>
-            <InputGroup>
+              <TextFieldGroup.TextField placeholder="example.com" />
+            </TextFieldGroup>
+            <TextFieldGroup>
               <SunIcon />
-              <InputGroup.Input placeholder="With icon" />
+              <TextFieldGroup.TextField placeholder="With icon" />
               <SunIcon />
-            </InputGroup>
+            </TextFieldGroup>
           </div>
         </div>
 
-        {/* InputGroup Multiple Adornments */}
+        {/* TextFieldGroup Multiple Adornments */}
         <div className="flex flex-col gap-2">
           <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
-            InputGroup Multiple Adornments
+            TextFieldGroup Multiple Adornments
           </div>
           <div className="flex flex-col gap-3">
-            <InputGroup>
+            <TextFieldGroup>
               <SearchIcon />
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroup.Input placeholder="Two adornments on left" />
-            </InputGroup>
-            <InputGroup>
-              <InputGroup.Input placeholder="Two adornments on right" />
+              <TextFieldGroup.TextField placeholder="Two adornments on left" />
+            </TextFieldGroup>
+            <TextFieldGroup>
+              <TextFieldGroup.TextField placeholder="Two adornments on right" />
               <span className="text-body text-(--gray-11)">kg</span>
               <SearchIcon />
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <SearchIcon />
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroup.Input placeholder="Two on left, one on right" />
+              <TextFieldGroup.TextField placeholder="Two on left, one on right" />
               <span className="text-body text-(--gray-11)">USD</span>
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroup.Input placeholder="One on left, two on right" />
+              <TextFieldGroup.TextField placeholder="One on left, two on right" />
               <span className="text-body text-(--gray-11)">USD</span>
               <SearchIcon />
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <SearchIcon />
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroup.Input placeholder="Three adornments total" />
+              <TextFieldGroup.TextField placeholder="Three adornments total" />
               <span className="text-body text-(--gray-11)">USD</span>
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <SearchIcon />
               <SunIcon />
-              <InputGroup.Input placeholder="Two icons on left" />
+              <TextFieldGroup.TextField placeholder="Two icons on left" />
               <span className="text-body text-(--gray-11)">kg</span>
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <span className="text-body text-(--gray-11)">https://</span>
-              <InputGroup.Input placeholder="www.example.com" />
+              <TextFieldGroup.TextField placeholder="www.example.com" />
               <span className="text-body text-(--gray-11)">.com</span>
               <SearchIcon />
-            </InputGroup>
-            <InputGroup>
+            </TextFieldGroup>
+            <TextFieldGroup>
               <SearchIcon />
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroup.Input placeholder="Multiple adornments" />
+              <TextFieldGroup.TextField placeholder="Multiple adornments" />
               <span className="text-body text-(--gray-11)">USD</span>
               <SunIcon />
-            </InputGroup>
+            </TextFieldGroup>
           </div>
         </div>
       </div>

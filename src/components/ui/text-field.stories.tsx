@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Input } from '@/components/ui/input';
+import { TextField } from '@/components/ui/text-field';
 import { ThemeProvider } from '@/hooks/use-theme';
 import { hueNames } from '@/styles/colors';
 
-const meta: Meta<typeof Input> = {
+const meta: Meta<typeof TextField> = {
   title: 'Components/Input',
-  component: Input,
+  component: TextField,
   decorators: [
     (Story) => (
       <ThemeProvider defaultAccent="blue">
@@ -36,7 +36,7 @@ const meta: Meta<typeof Input> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof TextField>;
 
 // Default Story
 export const Default: Story = {
@@ -50,9 +50,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <Input size="sm" placeholder="Small input" />
-      <Input size="md" placeholder="Medium input" />
-      <Input size="lg" placeholder="Large input" />
+      <TextField size="sm" placeholder="Small input" />
+      <TextField size="md" placeholder="Medium input" />
+      <TextField size="lg" placeholder="Large input" />
     </div>
   ),
 };
@@ -61,10 +61,10 @@ export const Sizes: Story = {
 export const States: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <Input placeholder="Normal input" />
-      <Input placeholder="Error input" error />
-      <Input placeholder="Disabled input" disabled />
-      <Input placeholder="Readonly input" readOnly value="Readonly value" />
+      <TextField placeholder="Normal input" />
+      <TextField placeholder="Error input" error />
+      <TextField placeholder="Disabled input" disabled />
+      <TextField placeholder="Readonly input" readOnly value="Readonly value" />
     </div>
   ),
 };
@@ -73,14 +73,14 @@ export const States: Story = {
 export const Colors: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <Input color="indigo" placeholder="Indigo input" />
-      <Input color="cyan" placeholder="Cyan input" />
-      <Input color="orange" placeholder="Orange input" />
-      <Input color="crimson" placeholder="Crimson input" />
-      <Input color="green" placeholder="Green input" />
-      <Input color="purple" placeholder="Purple input" />
-      <Input color="pink" placeholder="Pink input" />
-      <Input color="blue" placeholder="Blue input" />
+      <TextField color="indigo" placeholder="Indigo input" />
+      <TextField color="cyan" placeholder="Cyan input" />
+      <TextField color="orange" placeholder="Orange input" />
+      <TextField color="crimson" placeholder="Crimson input" />
+      <TextField color="green" placeholder="Green input" />
+      <TextField color="purple" placeholder="Purple input" />
+      <TextField color="pink" placeholder="Pink input" />
+      <TextField color="blue" placeholder="Blue input" />
     </div>
   ),
 };
@@ -91,63 +91,63 @@ export const InputTypes: Story = {
     <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">text</label>
-        <Input type="text" placeholder="Text input" />
+        <TextField type="text" placeholder="Text input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">email</label>
-        <Input type="email" placeholder="Email input" />
+        <TextField type="email" placeholder="Email input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">password</label>
-        <Input type="password" placeholder="Password input" />
+        <TextField type="password" placeholder="Password input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">number</label>
-        <Input type="number" placeholder="Number input" />
+        <TextField type="number" placeholder="Number input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">search</label>
-        <Input type="search" placeholder="Search input" />
+        <TextField type="search" placeholder="Search input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">tel</label>
-        <Input type="tel" placeholder="Tel input" />
+        <TextField type="tel" placeholder="Tel input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">url</label>
-        <Input type="url" placeholder="URL input" />
+        <TextField type="url" placeholder="URL input" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">date</label>
-        <Input type="date" />
+        <TextField type="date" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">time</label>
-        <Input type="time" />
+        <TextField type="time" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">datetime-local</label>
-        <Input type="datetime-local" />
+        <TextField type="datetime-local" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">month</label>
-        <Input type="month" />
+        <TextField type="month" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">week</label>
-        <Input type="week" />
+        <TextField type="week" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">color</label>
-        <Input type="color" />
+        <TextField type="color" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">range</label>
-        <Input type="range" />
+        <TextField type="range" />
       </div>
       <div className="flex flex-col gap-1">
         <label className="text-sm text-gray-600">file</label>
-        <Input type="file" />
+        <TextField type="file" />
       </div>
     </div>
   ),
@@ -160,25 +160,25 @@ export const ColorsXSizes: Story = {
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Small</h3>
         <div className="flex flex-col gap-2">
-          <Input color="indigo" size="sm" placeholder="Indigo small" />
-          <Input color="cyan" size="sm" placeholder="Cyan small" />
-          <Input color="orange" size="sm" placeholder="Orange small" />
+          <TextField color="indigo" size="sm" placeholder="Indigo small" />
+          <TextField color="cyan" size="sm" placeholder="Cyan small" />
+          <TextField color="orange" size="sm" placeholder="Orange small" />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Medium</h3>
         <div className="flex flex-col gap-2">
-          <Input color="indigo" size="md" placeholder="Indigo medium" />
-          <Input color="cyan" size="md" placeholder="Cyan medium" />
-          <Input color="orange" size="md" placeholder="Orange medium" />
+          <TextField color="indigo" size="md" placeholder="Indigo medium" />
+          <TextField color="cyan" size="md" placeholder="Cyan medium" />
+          <TextField color="orange" size="md" placeholder="Orange medium" />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Large</h3>
         <div className="flex flex-col gap-2">
-          <Input color="indigo" size="lg" placeholder="Indigo large" />
-          <Input color="cyan" size="lg" placeholder="Cyan large" />
-          <Input color="orange" size="lg" placeholder="Orange large" />
+          <TextField color="indigo" size="lg" placeholder="Indigo large" />
+          <TextField color="cyan" size="lg" placeholder="Cyan large" />
+          <TextField color="orange" size="lg" placeholder="Orange large" />
         </div>
       </div>
     </div>
@@ -192,17 +192,17 @@ export const StatesXColors: Story = {
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Error States</h3>
         <div className="flex flex-col gap-2">
-          <Input color="indigo" error placeholder="Indigo error" />
-          <Input color="cyan" error placeholder="Cyan error" />
-          <Input color="crimson" error placeholder="Crimson error" />
+          <TextField color="indigo" error placeholder="Indigo error" />
+          <TextField color="cyan" error placeholder="Cyan error" />
+          <TextField color="crimson" error placeholder="Crimson error" />
         </div>
       </div>
       <div className="flex flex-col gap-2">
         <h3 className="text-sm font-semibold">Disabled States</h3>
         <div className="flex flex-col gap-2">
-          <Input color="indigo" disabled placeholder="Indigo disabled" />
-          <Input color="cyan" disabled placeholder="Cyan disabled" />
-          <Input color="orange" disabled placeholder="Orange disabled" />
+          <TextField color="indigo" disabled placeholder="Indigo disabled" />
+          <TextField color="cyan" disabled placeholder="Cyan disabled" />
+          <TextField color="orange" disabled placeholder="Orange disabled" />
         </div>
       </div>
     </div>
@@ -213,20 +213,20 @@ export const StatesXColors: Story = {
 export const Combinations: Story = {
   render: () => (
     <div className="flex flex-col gap-3">
-      <Input color="indigo" size="lg" placeholder="Indigo large input" />
-      <Input
+      <TextField color="indigo" size="lg" placeholder="Indigo large input" />
+      <TextField
         color="cyan"
         size="sm"
         error
         placeholder="Cyan small error input"
       />
-      <Input
+      <TextField
         color="orange"
         size="md"
         disabled
         placeholder="Orange disabled input"
       />
-      <Input
+      <TextField
         color="green"
         size="lg"
         placeholder="Green large input"

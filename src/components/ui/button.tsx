@@ -98,7 +98,9 @@ const iconButtonStyles = tv({
   },
 });
 
-export const Button: React.FC<ButtonProps & React.ComponentProps<'button'>> = ({
+export const Button: React.FC<
+  ButtonProps & Omit<React.ComponentProps<'button'>, 'data-accent'>
+> = ({
   variant = 'solid',
   size = 'md',
   color,
@@ -138,7 +140,7 @@ export const Button: React.FC<ButtonProps & React.ComponentProps<'button'>> = ({
 };
 
 export const IconButton: React.FC<
-  IconButtonProps & React.ComponentProps<'button'>
+  IconButtonProps & Omit<React.ComponentProps<'button'>, 'data-accent'>
 > = ({
   variant = 'solid',
   size = 'md',
