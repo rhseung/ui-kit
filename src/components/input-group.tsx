@@ -3,8 +3,8 @@ import React, { createContext, useContext } from 'react';
 import { useTheme } from '@/hooks/use-theme';
 import { cn, tv } from '@/utils';
 
-import { isIconElement } from './icon';
-import { Input, type InputProps, inputStyles } from './input';
+import { isIconElement } from './ui/icon';
+import { Input, type InputProps, inputStyles } from './ui/input';
 
 export interface InputGroupProps extends InputProps {
   disabled?: boolean;

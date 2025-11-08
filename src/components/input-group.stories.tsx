@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { SearchIcon, SunIcon } from '@/assets';
-import { InputGroup } from '@/components/ui/input-group';
+import { InputGroup } from '@/components/input-group';
 import { ThemeProvider } from '@/hooks/use-theme';
 import { hueNames } from '@/styles/colors';
 
