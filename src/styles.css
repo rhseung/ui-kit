@@ -50,6 +50,8 @@ code {
   --text-caption: 14px;
   --text-caption--font-weight: 400;
   --text-caption--line-height: 120%;
+
+  --radius-lg: 10px;
 }
 
 :root {
