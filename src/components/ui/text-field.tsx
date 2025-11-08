@@ -6,12 +6,6 @@ import { useTheme } from '@/hooks/use-theme';
 import type { HueName } from '@/styles/colors';
 import { tv } from '@/utils';
 
-export interface TextFieldProps {
-  size?: VariantProps<typeof textFieldStyles>['size'];
-  color?: HueName;
-  error?: VariantProps<typeof textFieldStyles>['error'];
-}
-
 export const textFieldStyles = tv({
   base: 'text-body w-full rounded-xl border-none px-3.5 text-(--gray-12) shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none',
   variants: {
@@ -27,6 +21,12 @@ export const textFieldStyles = tv({
     },
   },
 });
+
+export interface TextFieldProps {
+  size?: VariantProps<typeof textFieldStyles>['size'];
+  color?: HueName;
+  error?: VariantProps<typeof textFieldStyles>['error'];
+}
 
 export const TextField = React.forwardRef<
   HTMLInputElement,

@@ -10,17 +10,6 @@ import {
   textFieldStyles,
 } from './ui/text-field';
 
-export interface TextFieldGroupProps extends TextFieldProps {
-  disabled?: boolean;
-}
-
-const TextFieldGroupContext = createContext<TextFieldGroupProps>({
-  size: 'md',
-  color: undefined,
-  error: false,
-  disabled: false,
-});
-
 // TODO: underline variant
 export const textFieldGroupStyles = tv({
   extend: textFieldStyles,
@@ -36,6 +25,17 @@ export const textFieldGroupStyles = tv({
       false: '',
     },
   },
+});
+
+export interface TextFieldGroupProps extends TextFieldProps {
+  disabled?: boolean;
+}
+
+const TextFieldGroupContext = createContext<TextFieldGroupProps>({
+  size: 'md',
+  color: undefined,
+  error: false,
+  disabled: false,
 });
 
 const TextFieldGroup: React.FC<
@@ -95,7 +95,7 @@ const InnerTextField = React.forwardRef<
       error={error}
       disabled={disabled}
       className={cn(
-        'rounded-none border-0 border-none p-0 inset-ring-0 focus:inset-ring-0',
+        'rounded-none border-none p-0 inset-ring-0 focus:inset-ring-0',
         className,
       )}
       {...props}
