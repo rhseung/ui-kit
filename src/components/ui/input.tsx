@@ -4,23 +4,17 @@ import type { VariantProps } from 'tailwind-variants';
 
 import { useTheme } from '@/hooks/use-theme';
 import type { HueName } from '@/styles/colors';
-import { cn, tv } from '@/utils';
+import { tv } from '@/utils';
 
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+// TODO: input type에 따라 return <PasswordInput />, <SearchInput />, <EmailInput />, <NumberInput />, <TelInput />, <UrlInput />, <DateInput />, <TimeInput />, <DateTimeInput />, <MonthInput />, <WeekInput />, <ColorInput />, <RangeInput />, <FileInput /> 등을 반환하도록 수정
+export interface InputProps {
   size?: VariantProps<typeof inputStyles>['size'];
   color?: HueName;
   error?: VariantProps<typeof inputStyles>['error'];
 }
 
-// placeholder: --gray-a8
-// text-selection: --accent-a5
-// text-color: --accent-12? --gray-12?
-// inset-ring: 1px --gray-a7
-// inset-ring-focus: 2px --accent-8
-
-const inputStyles = tv({
-  base: 'text-body w-full rounded-xl border-none px-3.5 shadow-none focus:outline-none',
+export const inputStyles = tv({
+  base: 'text-body w-full rounded-xl border-none px-3.5 text-(--gray-12) shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none',
   variants: {
     size: {
       sm: 'py-2 text-sm',
@@ -28,29 +22,27 @@ const inputStyles = tv({
       lg: 'py-3 text-lg',
     },
     error: {
-      true: '', // TODO: error style
-      false: cn(
-        'text-(--gray-12) inset-ring inset-ring-(--gray-a7) selection:bg-(--accent-a5) placeholder:text-(--gray-a8)',
-        'focus:inset-ring-2 focus:inset-ring-(--accent-8)',
-        // TODO: 'disabled:'
-      ),
+      true: 'inset-ring-2 inset-ring-(--red-11)',
+      false:
+        'inset-ring inset-ring-(--gray-a7) focus:inset-ring-2 focus:inset-ring-(--accent-8) disabled:opacity-50',
     },
   },
 });
 
 // TODO: input type 디자인 전부 고려 (ex. number, search, date, time, datetime-local, month, week, color, range, file)
 
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ size = 'md', color, error = false, className, ...props }, ref) => {
-    const { accent } = useTheme();
+export const Input = React.forwardRef<
+  HTMLInputElement,
+  InputProps & Omit<React.ComponentProps<'input'>, 'size'>
+>(({ size = 'md', color, error = false, className, ...props }, ref) => {
+  const { accent } = useTheme();
 
-    return (
-      <input
-        ref={ref}
-        data-accent={color ?? accent}
-        className={inputStyles({ size, error, className })}
-        {...props}
-      />
-    );
-  },
-);
+  return (
+    <input
+      ref={ref}
+      data-accent={color ?? accent}
+      className={inputStyles({ size, error, className })}
+      {...props}
+    />
+  );
+});

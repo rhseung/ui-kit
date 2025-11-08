@@ -2,8 +2,14 @@ import 'react';
 
 import { createFileRoute } from '@tanstack/react-router';
 
-import { SunIcon } from '@/assets';
-import { Button, IconButton, Input } from '@/components';
+import { SearchIcon, SunIcon } from '@/assets';
+import {
+  Button,
+  IconButton,
+  Input,
+  InputGroup,
+  InputGroupInput,
+} from '@/components';
 import { useTheme } from '@/hooks/use-theme';
 import { type HueName, hueNames } from '@/styles/colors';
 import { cn } from '@/utils/cn';
@@ -311,6 +317,117 @@ function App() {
               disabled
               placeholder="Orange disabled input"
             />
+          </div>
+        </div>
+
+        {/* InputGroup */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            InputGroup
+          </div>
+          <div className="flex flex-col gap-3">
+            <InputGroup color="indigo">
+              <SearchIcon />
+              <InputGroupInput placeholder="Search with icon" />
+            </InputGroup>
+            <InputGroup>
+              <InputGroupInput placeholder="Weight" />
+              <span className="text-body text-(--gray-11)">kg</span>
+            </InputGroup>
+            <InputGroup>
+              <SearchIcon />
+              <InputGroupInput placeholder="Weight" />
+              <span className="text-body text-(--gray-11)">kg</span>
+            </InputGroup>
+          </div>
+        </div>
+
+        {/* InputGroup Sizes */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            InputGroup Sizes
+          </div>
+          <div className="flex flex-col gap-3">
+            <InputGroup size="sm">
+              <SearchIcon size="sm" />
+              <InputGroupInput placeholder="Small input" />
+            </InputGroup>
+            <InputGroup size="md">
+              <SearchIcon />
+              <InputGroupInput placeholder="Medium input" />
+            </InputGroup>
+            <InputGroup size="lg">
+              <SearchIcon size="lg" />
+              <InputGroupInput placeholder="Large input" />
+            </InputGroup>
+          </div>
+        </div>
+
+        {/* InputGroup with Colors */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            InputGroup Colors
+          </div>
+          <div className="flex flex-col gap-3">
+            <InputGroup color="indigo">
+              <SearchIcon />
+              <InputGroupInput placeholder="Indigo input" />
+            </InputGroup>
+            <InputGroup color="cyan">
+              <SearchIcon />
+              <InputGroupInput placeholder="Cyan input" />
+            </InputGroup>
+            <InputGroup color="orange">
+              <SearchIcon />
+              <InputGroupInput placeholder="Orange input" />
+            </InputGroup>
+          </div>
+        </div>
+
+        {/* InputGroup States */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            InputGroup States
+          </div>
+          <div className="flex flex-col gap-3">
+            <InputGroup>
+              <SearchIcon />
+              <InputGroupInput placeholder="Normal input" />
+            </InputGroup>
+            <InputGroup error>
+              <SearchIcon />
+              <InputGroupInput placeholder="Error input" />
+            </InputGroup>
+            <InputGroup disabled>
+              <SearchIcon />
+              <InputGroupInput placeholder="Disabled input" />
+            </InputGroup>
+          </div>
+        </div>
+
+        {/* InputGroup Variations */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            InputGroup Variations
+          </div>
+          <div className="flex flex-col gap-3">
+            <InputGroup>
+              <span className="text-body text-(--gray-11)">$</span>
+              <InputGroupInput placeholder="0.00" />
+            </InputGroup>
+            <InputGroup>
+              <InputGroupInput placeholder="Email" />
+              <span className="text-body text-(--gray-11)">@example.com</span>
+            </InputGroup>
+            <InputGroup>
+              <span className="text-body text-(--gray-11)">https://</span>
+              <InputGroupInput placeholder="example.com" />
+            </InputGroup>
+            <InputGroup>
+              <SunIcon />
+              <InputGroupInput placeholder="With icon" />
+              <SunIcon />
+            </InputGroup>
           </div>
         </div>
       </div>

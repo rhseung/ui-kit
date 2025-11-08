@@ -10,8 +10,7 @@ import { tv } from '@/utils';
 
 import { isIconElement } from './icon';
 
-interface BaseButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface BaseButtonProps {
   variant?: VariantProps<typeof baseButtonStyles>['variant'];
   size?: VariantProps<typeof baseButtonStyles>['size'];
   highContrast?: VariantProps<typeof baseButtonStyles>['highContrast'];
@@ -99,7 +98,7 @@ const iconButtonStyles = tv({
   },
 });
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps & React.ComponentProps<'button'>> = ({
   variant = 'solid',
   size = 'md',
   color,
@@ -138,7 +137,9 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-export const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton: React.FC<
+  IconButtonProps & React.ComponentProps<'button'>
+> = ({
   variant = 'solid',
   size = 'md',
   color,
