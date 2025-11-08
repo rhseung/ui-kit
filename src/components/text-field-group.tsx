@@ -23,7 +23,8 @@ export const textFieldGroupStyles = tv({
     {
       variant: 'surface',
       error: true,
-      class: 'inset-ring-2 inset-ring-(--red-11)',
+      class:
+        'inset-ring-2 inset-ring-(--red-11) has-focus:inset-ring-(--accent-8)',
     },
     {
       variant: 'surface',
@@ -34,7 +35,7 @@ export const textFieldGroupStyles = tv({
     {
       variant: 'underline',
       error: true,
-      class: 'border-(--red-11)',
+      class: 'border-(--red-11) has-focus:border-(--accent-8)',
     },
     {
       variant: 'underline',
