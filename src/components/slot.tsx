@@ -2,7 +2,7 @@ import React from 'react';
 
 import { cn } from '../utils/cn';
 
-interface SlotProps extends React.HTMLAttributes<HTMLElement> {
+export interface SlotProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
 

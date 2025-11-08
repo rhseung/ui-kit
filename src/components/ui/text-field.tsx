@@ -13,12 +13,12 @@ export const textFieldStyles = tv({
       surface:
         'rounded-lg px-3.5 inset-ring inset-ring-(--gray-a7) focus:inset-ring-2 focus:inset-ring-(--accent-8)',
       underline:
-        'rounded-none border-b border-(--gray-a7) px-1 focus:border-b-2 focus:border-(--accent-8)',
+        'rounded-none border-b border-(--gray-a7) px-1 pb-1.5 focus:border-b-2 focus:border-(--accent-8)',
     },
     size: {
-      sm: 'py-2 text-sm',
-      md: 'py-2.5',
-      lg: 'py-2.5 text-lg',
+      sm: 'text-sm',
+      md: '',
+      lg: 'text-lg',
     },
     error: {
       true: '',
@@ -26,6 +26,21 @@ export const textFieldStyles = tv({
     },
   },
   compoundVariants: [
+    {
+      variant: 'surface',
+      size: 'sm',
+      class: 'py-2',
+    },
+    {
+      variant: 'surface',
+      size: 'md',
+      class: 'py-2.5',
+    },
+    {
+      variant: 'surface',
+      size: 'lg',
+      class: 'py-2.5',
+    },
     {
       variant: 'surface',
       error: true,

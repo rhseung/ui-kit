@@ -101,7 +101,7 @@ const InnerTextField = React.forwardRef<
   HTMLInputElement,
   Omit<
     TextFieldProps & React.ComponentProps<'input'>,
-    'size' | 'color' | 'disabled' | 'variant' | 'data-accent'
+    'size' | 'color' | 'error' | 'disabled' | 'variant' | 'data-accent'
   >
 >(({ className, ...props }, ref) => {
   const { variant, size, color, error, disabled } = useContext(
