@@ -29,12 +29,12 @@ export const textFieldStyles = tv({
     {
       variant: 'surface',
       error: true,
-      class: 'inset-ring-2 inset-ring-(--red-11)',
+      class: 'inset-ring-danger inset-ring-2',
     },
     {
       variant: 'underline',
       error: true,
-      class: 'border-b-2 border-(--red-11)',
+      class: 'border-danger border-b-2',
     },
   ],
 });

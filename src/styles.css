@@ -52,6 +52,11 @@ code {
   --text-caption--line-height: 120%;
 
   --radius-lg: 10px;
+
+  --color-danger: var(--red-10);
+  --color-warning: var(--amber-10);
+  --color-success: var(--grass-10);
+  --color-info: var(--blue-10);
 }
 
 :root {
