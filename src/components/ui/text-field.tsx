@@ -7,7 +7,7 @@ import type { HueName } from '@/styles/colors';
 import { tv } from '@/utils';
 
 export const textFieldStyles = tv({
-  base: 'text-body w-full rounded-xl border-none px-3.5 text-(--gray-12) shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none',
+  base: 'text-body w-full rounded-xl border-none px-3.5 text-(--gray-12) shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none disabled:opacity-50',
   variants: {
     size: {
       sm: 'py-2 text-sm',
@@ -17,7 +17,7 @@ export const textFieldStyles = tv({
     error: {
       true: 'inset-ring-2 inset-ring-(--red-11)',
       false:
-        'inset-ring inset-ring-(--gray-a7) focus:inset-ring-2 focus:inset-ring-(--accent-8) disabled:opacity-50',
+        'inset-ring inset-ring-(--gray-a7) focus:inset-ring-2 focus:inset-ring-(--accent-8)',
     },
   },
 });
@@ -39,7 +39,10 @@ export const TextField = React.forwardRef<
       ref={ref}
       data-accent={color ?? accent}
       className={textFieldStyles({ size, error, className })}
+      aria-invalid={error}
       {...props}
     />
   );
 });
+
+TextField.displayName = 'TextField';
