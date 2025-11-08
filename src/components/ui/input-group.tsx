@@ -3,6 +3,7 @@ import React, { createContext, useContext } from 'react';
 import { useTheme } from '@/hooks/use-theme';
 import { cn, tv } from '@/utils';
 
+import { isIconElement } from './icon';
 import { Input, type InputProps, inputStyles } from './input';
 
 export interface InputGroupProps extends InputProps {
@@ -18,6 +19,7 @@ const InputGroupContext = createContext<InputGroupProps>({
 
 export const inputGroupStyles = tv({
   extend: inputStyles,
+  base: 'flex items-center gap-2',
   variants: {
     error: {
       true: 'inset-ring-2 inset-ring-(--red-11)',
@@ -31,7 +33,7 @@ export const inputGroupStyles = tv({
   },
 });
 
-export const InputGroup: React.FC<
+const InputGroupImpl: React.FC<
   InputGroupProps & React.ComponentProps<'div'>
 > = ({
   size = 'md',
@@ -45,6 +47,12 @@ export const InputGroup: React.FC<
   const { accent } = useTheme();
   const computedColor = color ?? accent;
 
+  const processedChildren = React.Children.map(children, (child) =>
+    isIconElement(child)
+      ? React.cloneElement(child, { size: child.props.size ?? size })
+      : child,
+  );
+
   return (
     <InputGroupContext.Provider
       value={{ size, color: computedColor, error, disabled }}
@@ -55,17 +63,17 @@ export const InputGroup: React.FC<
           size,
           error,
           disabled,
-          className: cn('flex items-center gap-3.5', className),
+          className,
         })}
         {...props}
       >
-        {children}
+        {processedChildren}
       </div>
     </InputGroupContext.Provider>
   );
 };
 
-export const InputGroupInput = React.forwardRef<
+const InputGroupInput = React.forwardRef<
   HTMLInputElement,
   Omit<
     InputProps & React.ComponentProps<'input'>,
@@ -90,30 +98,6 @@ export const InputGroupInput = React.forwardRef<
   );
 });
 
-// export interface InputGroupAdornmentProps {
-//   className?: string;
-// }
-
-// export const InputGroupAdornment: React.FC<
-//   PropsWithChildren<InputGroupAdornmentProps>
-// > = ({ className, children }) => {
-//   const context = useContext(InputGroupContext);
-//   const { size } = context;
-
-//   return (
-//     <div
-//       className={cn(
-//         'text-body flex items-center justify-center px-3 text-(--gray-11)',
-//         'bg-(--gray-2) inset-ring inset-ring-(--gray-a7)',
-//         size === 'sm' && 'py-2 text-sm',
-//         size === 'md' && 'py-2.5',
-//         size === 'lg' && 'py-3 text-lg',
-//         position === 'start' && 'rounded-l-xl rounded-r-none',
-//         position === 'end' && 'rounded-l-none rounded-r-xl',
-//         className,
-//       )}
-//     >
-//       {children}
-//     </div>
-//   );
-// };
+export const InputGroup = Object.assign(InputGroupImpl, {
+  Input: InputGroupInput,
+});

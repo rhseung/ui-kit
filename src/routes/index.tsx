@@ -3,13 +3,7 @@ import 'react';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { SearchIcon, SunIcon } from '@/assets';
-import {
-  Button,
-  IconButton,
-  Input,
-  InputGroup,
-  InputGroupInput,
-} from '@/components';
+import { Button, IconButton, Input, InputGroup } from '@/components';
 import { useTheme } from '@/hooks/use-theme';
 import { type HueName, hueNames } from '@/styles/colors';
 import { cn } from '@/utils/cn';
@@ -328,15 +322,15 @@ function App() {
           <div className="flex flex-col gap-3">
             <InputGroup color="indigo">
               <SearchIcon />
-              <InputGroupInput placeholder="Search with icon" />
+              <InputGroup.Input placeholder="Search with icon" />
             </InputGroup>
             <InputGroup>
-              <InputGroupInput placeholder="Weight" />
+              <InputGroup.Input placeholder="Weight" />
               <span className="text-body text-(--gray-11)">kg</span>
             </InputGroup>
             <InputGroup>
               <SearchIcon />
-              <InputGroupInput placeholder="Weight" />
+              <InputGroup.Input placeholder="Weight" />
               <span className="text-body text-(--gray-11)">kg</span>
             </InputGroup>
           </div>
@@ -349,16 +343,16 @@ function App() {
           </div>
           <div className="flex flex-col gap-3">
             <InputGroup size="sm">
-              <SearchIcon size="sm" />
-              <InputGroupInput placeholder="Small input" />
+              <SearchIcon />
+              <InputGroup.Input placeholder="Small input" />
             </InputGroup>
             <InputGroup size="md">
               <SearchIcon />
-              <InputGroupInput placeholder="Medium input" />
+              <InputGroup.Input placeholder="Medium input" />
             </InputGroup>
             <InputGroup size="lg">
-              <SearchIcon size="lg" />
-              <InputGroupInput placeholder="Large input" />
+              <SearchIcon />
+              <InputGroup.Input placeholder="Large input" />
             </InputGroup>
           </div>
         </div>
@@ -371,15 +365,15 @@ function App() {
           <div className="flex flex-col gap-3">
             <InputGroup color="indigo">
               <SearchIcon />
-              <InputGroupInput placeholder="Indigo input" />
+              <InputGroup.Input placeholder="Indigo input" />
             </InputGroup>
             <InputGroup color="cyan">
               <SearchIcon />
-              <InputGroupInput placeholder="Cyan input" />
+              <InputGroup.Input placeholder="Cyan input" />
             </InputGroup>
             <InputGroup color="orange">
               <SearchIcon />
-              <InputGroupInput placeholder="Orange input" />
+              <InputGroup.Input placeholder="Orange input" />
             </InputGroup>
           </div>
         </div>
@@ -392,15 +386,15 @@ function App() {
           <div className="flex flex-col gap-3">
             <InputGroup>
               <SearchIcon />
-              <InputGroupInput placeholder="Normal input" />
+              <InputGroup.Input placeholder="Normal input" />
             </InputGroup>
             <InputGroup error>
               <SearchIcon />
-              <InputGroupInput placeholder="Error input" />
+              <InputGroup.Input placeholder="Error input" />
             </InputGroup>
             <InputGroup disabled>
               <SearchIcon />
-              <InputGroupInput placeholder="Disabled input" />
+              <InputGroup.Input placeholder="Disabled input" />
             </InputGroup>
           </div>
         </div>
@@ -413,19 +407,75 @@ function App() {
           <div className="flex flex-col gap-3">
             <InputGroup>
               <span className="text-body text-(--gray-11)">$</span>
-              <InputGroupInput placeholder="0.00" />
+              <InputGroup.Input placeholder="0.00" />
             </InputGroup>
             <InputGroup>
-              <InputGroupInput placeholder="Email" />
+              <InputGroup.Input placeholder="Email" />
               <span className="text-body text-(--gray-11)">@example.com</span>
             </InputGroup>
             <InputGroup>
               <span className="text-body text-(--gray-11)">https://</span>
-              <InputGroupInput placeholder="example.com" />
+              <InputGroup.Input placeholder="example.com" />
             </InputGroup>
             <InputGroup>
               <SunIcon />
-              <InputGroupInput placeholder="With icon" />
+              <InputGroup.Input placeholder="With icon" />
+              <SunIcon />
+            </InputGroup>
+          </div>
+        </div>
+
+        {/* InputGroup Multiple Adornments */}
+        <div className="flex flex-col gap-2">
+          <div className={cn('text-title-4 font-semibold text-(--gray-12)')}>
+            InputGroup Multiple Adornments
+          </div>
+          <div className="flex flex-col gap-3">
+            <InputGroup>
+              <SearchIcon />
+              <span className="text-body text-(--gray-11)">$</span>
+              <InputGroup.Input placeholder="Two adornments on left" />
+            </InputGroup>
+            <InputGroup>
+              <InputGroup.Input placeholder="Two adornments on right" />
+              <span className="text-body text-(--gray-11)">kg</span>
+              <SearchIcon />
+            </InputGroup>
+            <InputGroup>
+              <SearchIcon />
+              <span className="text-body text-(--gray-11)">$</span>
+              <InputGroup.Input placeholder="Two on left, one on right" />
+              <span className="text-body text-(--gray-11)">USD</span>
+            </InputGroup>
+            <InputGroup>
+              <span className="text-body text-(--gray-11)">$</span>
+              <InputGroup.Input placeholder="One on left, two on right" />
+              <span className="text-body text-(--gray-11)">USD</span>
+              <SearchIcon />
+            </InputGroup>
+            <InputGroup>
+              <SearchIcon />
+              <span className="text-body text-(--gray-11)">$</span>
+              <InputGroup.Input placeholder="Three adornments total" />
+              <span className="text-body text-(--gray-11)">USD</span>
+            </InputGroup>
+            <InputGroup>
+              <SearchIcon />
+              <SunIcon />
+              <InputGroup.Input placeholder="Two icons on left" />
+              <span className="text-body text-(--gray-11)">kg</span>
+            </InputGroup>
+            <InputGroup>
+              <span className="text-body text-(--gray-11)">https://</span>
+              <InputGroup.Input placeholder="www.example.com" />
+              <span className="text-body text-(--gray-11)">.com</span>
+              <SearchIcon />
+            </InputGroup>
+            <InputGroup>
+              <SearchIcon />
+              <span className="text-body text-(--gray-11)">$</span>
+              <InputGroup.Input placeholder="Multiple adornments" />
+              <span className="text-body text-(--gray-11)">USD</span>
               <SunIcon />
             </InputGroup>
           </div>
