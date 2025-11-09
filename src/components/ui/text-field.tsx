@@ -13,7 +13,7 @@ export const textFieldStyles = tv({
       surface:
         'rounded-lg px-3.5 inset-ring inset-ring-(--gray-a7) focus:inset-ring-2 focus:inset-ring-(--accent-8)',
       underline:
-        'rounded-none border-b border-(--gray-a7) px-1 py-1.5 focus:border-b-2 focus:border-(--accent-8)',
+        'rounded-none border-b border-(--gray-a7) px-1 py-1.5 focus:border-(--accent-8) focus:shadow-[inset_0_-1px_0_0_var(--accent-8)]',
     },
     size: {
       sm: 'text-sm',
@@ -49,7 +49,7 @@ export const textFieldStyles = tv({
     {
       variant: 'underline',
       error: true,
-      class: 'border-danger border-b-2',
+      class: 'border-danger shadow-[inset_0_-1px_0_0_var(--color-danger)]',
     },
   ],
 });
