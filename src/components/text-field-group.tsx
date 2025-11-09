@@ -33,12 +33,14 @@ export const textFieldGroupStyles = tv({
     {
       variant: 'underline',
       error: true,
-      class: 'has-focus:border-(--accent-8)',
+      class:
+        'has-focus:border-(--accent-8) has-focus:shadow-[inset_0_-1px_0_0_var(--accent-8)]',
     },
     {
       variant: 'underline',
       error: false,
-      class: 'has-focus:border-b-2 has-focus:border-(--accent-8)',
+      class:
+        'has-focus:border-(--accent-8) has-focus:shadow-[inset_0_-1px_0_0_var(--accent-8)]',
     },
   ],
 });
@@ -101,7 +103,7 @@ const InnerTextField = React.forwardRef<
   HTMLInputElement,
   Omit<
     TextFieldProps & React.ComponentProps<'input'>,
-    'size' | 'color' | 'disabled' | 'variant' | 'data-accent'
+    'size' | 'color' | 'error' | 'disabled' | 'variant' | 'data-accent'
   >
 >(({ className, ...props }, ref) => {
   const { variant, size, color, error, disabled } = useContext(
@@ -117,7 +119,7 @@ const InnerTextField = React.forwardRef<
       error={error}
       disabled={disabled}
       className={cn(
-        'rounded-none border-0 p-0 inset-ring-0 focus:border-0 focus:inset-ring-0 disabled:opacity-100',
+        'rounded-none border-0 p-0 shadow-none inset-ring-0 focus:shadow-none focus:inset-ring-0 disabled:opacity-100',
         className,
       )}
       {...props}

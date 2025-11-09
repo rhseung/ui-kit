@@ -31,7 +31,7 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider defaultAccent="jade">
+        <ThemeProvider defaultAccent="iris">
           <RouterProvider router={router} />
         </ThemeProvider>
       </QueryClientProvider>

@@ -57,6 +57,8 @@ code {
   --color-warning: var(--amber-10);
   --color-success: var(--grass-10);
   --color-info: var(--blue-10);
+  --color-muted-foreground: var(--gray-11);
+  --color-foreground: var(--gray-12);
 }
 
 :root {

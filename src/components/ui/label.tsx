@@ -5,7 +5,7 @@ import type { VariantProps } from 'tailwind-variants';
 import { tv } from '@/utils';
 
 export const labelStyles = tv({
-  base: 'text-caption text-(--gray-11) select-none',
+  base: 'text-caption text-muted-foreground select-none',
   variants: {
     size: {
       sm: 'text-xs',
