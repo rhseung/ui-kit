@@ -6,21 +6,45 @@ import {
   type FieldPath,
   type FieldValues,
   FormProvider,
+  type UseFormReturn,
   useFormContext,
   useFormState,
 } from 'react-hook-form';
 
 import { cn } from '@/utils';
 
-import { Slot, type SlotProps } from './slot';
+import { Slot } from './slot';
 import { Label, type LabelProps } from './ui';
 
-const Form = FormProvider;
+export interface FormProps<
+  TFieldValues extends FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+> extends React.ComponentProps<'form'> {
+  form: UseFormReturn<TFieldValues, TContext, TTransformedValues>;
+}
+
+const Form = <
+  TFieldValues extends FieldValues,
+  TContext = any,
+  TTransformedValues = TFieldValues,
+>({
+  form,
+  children,
+  ...props
+}: FormProps<TFieldValues, TContext, TTransformedValues>) => {
+  return (
+    <FormProvider {...form}>
+      <form {...props}>{children}</form>
+    </FormProvider>
+  );
+};
 
 export interface FormFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
-> extends Omit<ControllerProps<TFieldValues, TName>, 'render'> {
+> extends Omit<ControllerProps<TFieldValues, TName>, 'render' | 'control'> {
+  className?: string;
   children: ControllerProps<TFieldValues, TName>['render'];
 }
 
@@ -48,23 +72,28 @@ const FormField = <
   TName extends FieldPath<TFieldValues>,
 >({
   name,
+  className,
   children,
   ...props
 }: FormFieldProps<TFieldValues, TName>) => {
-  return (
-    <FormFieldContext.Provider value={{ name }}>
-      <Controller name={name} render={children} {...props} />
-    </FormFieldContext.Provider>
-  );
-};
-
-const FormItem = ({ className, ...props }: React.ComponentProps<'div'>) => {
+  const formContext = useFormContext<TFieldValues, any, TFieldValues>();
   const id = useId();
 
   return (
-    <FormItemContext.Provider value={{ id }}>
-      <div className={cn('flex flex-col gap-2', className)} {...props} />
-    </FormItemContext.Provider>
+    <FormFieldContext.Provider value={{ name }}>
+      <Controller
+        control={formContext.control}
+        name={name}
+        render={(...args) => (
+          <FormItemContext.Provider value={{ id }}>
+            <div className={cn('flex flex-col gap-2', className)} {...props}>
+              {children(...args)}
+            </div>
+          </FormItemContext.Provider>
+        )}
+        {...props}
+      />
+    </FormFieldContext.Provider>
   );
 };
 
@@ -99,10 +128,15 @@ const useFormField = () => {
 const FormLabel = ({ className, ...props }: LabelProps) => {
   const { error, formItemId } = useFormField();
 
-  return <Label error={error != undefined} htmlFor={formItemId} {...props} />;
+  return <Label error={!!error} htmlFor={formItemId} {...props} />;
 };
 
-const FormControl = ({ children, ...props }: SlotProps) => {
+// TODO: autoComplete 없으면 타입 및 런타임 에러 띄우게 하자
+
+const FormControl = ({
+  children,
+  ...props
+}: React.ComponentProps<typeof Slot>) => {
   const { error, formItemId, formDescriptionId, formMessageId } =
     useFormField();
 
@@ -113,6 +147,7 @@ const FormControl = ({ children, ...props }: SlotProps) => {
         error ? `${formDescriptionId} ${formMessageId}` : formDescriptionId
       }
       aria-invalid={!!error || undefined}
+      error={!!error}
       {...props}
     >
       {children}
@@ -138,32 +173,37 @@ const FormDescription = ({
   );
 };
 
+// TODO: --gray-11 도 semantic하게 처리하자
+
 const FormMessage = ({
   className,
   children,
   ...props
 }: React.ComponentProps<'p'>) => {
   const { error, formMessageId } = useFormField();
-  const content = error ? (error.message ?? '') : children;
+  const message = error ? (error.message ?? '') : children;
 
-  if (!content) {
+  if (!message) {
     return null;
   }
 
   return (
     <p
       id={formMessageId}
-      className={cn('text-caption text-danger', className)}
+      className={cn(
+        'text-caption',
+        error ? 'text-danger' : 'text-(--gray-11)',
+        className,
+      )}
       {...props}
     >
-      {content}
+      {message}
     </p>
   );
 };
 
 const FormImpl = Object.assign(Form, {
   Field: FormField,
-  Item: FormItem,
   Label: FormLabel,
   Control: FormControl,
   Description: FormDescription,

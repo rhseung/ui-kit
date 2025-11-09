@@ -1,5 +1,3 @@
-import 'react';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { createFileRoute } from '@tanstack/react-router';
 import { useForm } from 'react-hook-form';
@@ -27,104 +25,77 @@ function App() {
 
   return (
     <div className="flex w-[540px] flex-col gap-2 p-5">
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="grid grid-cols-2 grid-rows-2 gap-8"
-        >
-          <Form.Field control={form.control} name="email">
-            {({ field, fieldState }) => (
-              <Form.Item>
-                <Form.Label required>Email</Form.Label>
-                <Form.Control>
-                  {/* TODO: ...field 넣어도 error 유무를 따로 넣어줘야하는데 이걸 자동화하자 */}
-                  <TextFieldGroup
-                    // variant="underline"
-                    error={!!fieldState.error}
-                  >
-                    <TextFieldGroup.TextField
-                      placeholder="rhseung"
-                      {...field}
-                    />
-                    <span className="text-body text-(--gray-11)">
-                      @gmail.com
-                    </span>
-                  </TextFieldGroup>
-                </Form.Control>
-                <Form.Description>
-                  This field's value: {field.value}
-                </Form.Description>
-                <Form.Message />
-              </Form.Item>
-            )}
-          </Form.Field>
-          <Form.Field control={form.control} name="email">
-            {({ field, fieldState }) => (
-              <Form.Item>
-                <Form.Label required>Email</Form.Label>
-                <Form.Control>
-                  {/* TODO: ...field 넣어도 error 유무를 따로 넣어줘야하는데 이걸 자동화하자 */}
-                  <TextField
-                    // variant="underline"
-                    placeholder="rhseung"
-                    error={!!fieldState.error}
-                    {...field}
-                  />
-                </Form.Control>
-                <Form.Description>
-                  This field's value: {field.value}
-                </Form.Description>
-                <Form.Message />
-              </Form.Item>
-            )}
-          </Form.Field>
-          <Form.Field control={form.control} name="email">
-            {({ field, fieldState }) => (
-              <Form.Item>
-                <Form.Label required>Email</Form.Label>
-                <Form.Control>
-                  {/* TODO: ...field 넣어도 error 유무를 따로 넣어줘야하는데 이걸 자동화하자 */}
-                  <TextFieldGroup
-                    variant="underline"
-                    error={!!fieldState.error}
-                  >
-                    <TextFieldGroup.TextField
-                      placeholder="rhseung"
-                      {...field}
-                    />
-                    <span className="text-body text-(--gray-11)">
-                      @gmail.com
-                    </span>
-                  </TextFieldGroup>
-                </Form.Control>
-                <Form.Description>
-                  This field's value: {field.value}
-                </Form.Description>
-                <Form.Message />
-              </Form.Item>
-            )}
-          </Form.Field>
-          <Form.Field control={form.control} name="email">
-            {({ field, fieldState }) => (
-              <Form.Item>
-                <Form.Label required>Email</Form.Label>
-                <Form.Control>
-                  {/* TODO: ...field 넣어도 error 유무를 따로 넣어줘야하는데 이걸 자동화하자 */}
-                  <TextField
-                    variant="underline"
-                    placeholder="rhseung"
-                    error={!!fieldState.error}
-                    {...field}
-                  />
-                </Form.Control>
-                <Form.Description>
-                  This field's value: {field.value}
-                </Form.Description>
-                <Form.Message />
-              </Form.Item>
-            )}
-          </Form.Field>
-        </form>
+      <Form
+        form={form}
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="grid grid-cols-2 grid-rows-2 gap-8"
+      >
+        <Form.Field name="email">
+          {({ field }) => (
+            <>
+              <Form.Label required>Email</Form.Label>
+              <Form.Control>
+                <TextFieldGroup>
+                  <TextFieldGroup.TextField placeholder="rhseung" {...field} />
+                  <span className="text-body text-(--gray-11)">@gmail.com</span>
+                </TextFieldGroup>
+              </Form.Control>
+              <Form.Description>
+                This field's value: {field.value}
+              </Form.Description>
+              <Form.Message />
+            </>
+          )}
+        </Form.Field>
+        <Form.Field name="email">
+          {({ field }) => (
+            <>
+              <Form.Label required>Email</Form.Label>
+              <Form.Control>
+                <TextField placeholder="rhseung" {...field} />
+              </Form.Control>
+              <Form.Description>
+                This field's value: {field.value}
+              </Form.Description>
+              <Form.Message />
+            </>
+          )}
+        </Form.Field>
+        <Form.Field name="email">
+          {({ field }) => (
+            <>
+              <Form.Label required>Email</Form.Label>
+              <Form.Control>
+                <TextFieldGroup variant="underline">
+                  <TextFieldGroup.TextField placeholder="rhseung" {...field} />
+                  <span className="text-body text-(--gray-11)">@gmail.com</span>
+                </TextFieldGroup>
+              </Form.Control>
+              <Form.Description>
+                This field's value: {field.value}
+              </Form.Description>
+              <Form.Message />
+            </>
+          )}
+        </Form.Field>
+        <Form.Field name="email">
+          {({ field }) => (
+            <>
+              <Form.Label required>Email</Form.Label>
+              <Form.Control>
+                <TextField
+                  variant="underline"
+                  placeholder="rhseung"
+                  {...field}
+                />
+              </Form.Control>
+              <Form.Description>
+                This field's value: {field.value}
+              </Form.Description>
+              <Form.Message />
+            </>
+          )}
+        </Form.Field>
       </Form>
     </div>
   );

@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { type PropsWithChildren } from 'react';
 
 import { cn } from '../utils/cn';
 
-export interface SlotProps extends React.HTMLAttributes<HTMLElement> {
-  children: React.ReactNode;
-}
-
-export const Slot = React.forwardRef<HTMLElement, SlotProps>(
+export const Slot = React.forwardRef<HTMLElement, PropsWithChildren<any>>(
   ({ children, ...props }, ref) => {
     if (React.Children.count(children) !== 1) {
       throw new Error(
