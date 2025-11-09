@@ -65,12 +65,12 @@ export const Basic: Story = {
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <TextFieldGroup.TextField placeholder="Weight" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <SearchIcon />
             <TextFieldGroup.TextField placeholder="Weight" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
           </TextFieldGroup>
         </div>
       </div>
@@ -83,12 +83,12 @@ export const Basic: Story = {
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <TextFieldGroup.TextField placeholder="Weight" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <SearchIcon />
             <TextFieldGroup.TextField placeholder="Weight" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
           </TextFieldGroup>
         </div>
       </div>
@@ -198,15 +198,17 @@ export const Variations: Story = {
         <h3 className="text-sm font-semibold">Surface</h3>
         <div className="flex flex-col gap-2">
           <TextFieldGroup variant="surface">
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="0.00" />
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <TextFieldGroup.TextField placeholder="Email" />
-            <span className="text-body text-(--gray-11)">@example.com</span>
+            <span className="text-body text-muted-foreground">
+              @example.com
+            </span>
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
-            <span className="text-body text-(--gray-11)">https://</span>
+            <span className="text-body text-muted-foreground">https://</span>
             <TextFieldGroup.TextField placeholder="example.com" />
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
@@ -220,15 +222,17 @@ export const Variations: Story = {
         <h3 className="text-sm font-semibold">Underline</h3>
         <div className="flex flex-col gap-2">
           <TextFieldGroup variant="underline">
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="0.00" />
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <TextFieldGroup.TextField placeholder="Email" />
-            <span className="text-body text-(--gray-11)">@example.com</span>
+            <span className="text-body text-muted-foreground">
+              @example.com
+            </span>
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
-            <span className="text-body text-(--gray-11)">https://</span>
+            <span className="text-body text-muted-foreground">https://</span>
             <TextFieldGroup.TextField placeholder="example.com" />
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
@@ -251,49 +255,49 @@ export const MultipleAdornments: Story = {
         <div className="flex flex-col gap-2">
           <TextFieldGroup variant="surface">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Two adornments on left" />
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <TextFieldGroup.TextField placeholder="Two adornments on right" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
             <SearchIcon />
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Two on left, one on right" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="One on left, two on right" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
             <SearchIcon />
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Three adornments total" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <SearchIcon />
             <SunIcon />
             <TextFieldGroup.TextField placeholder="Two icons on left" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
-            <span className="text-body text-(--gray-11)">https://</span>
+            <span className="text-body text-muted-foreground">https://</span>
             <TextFieldGroup.TextField placeholder="www.example.com" />
-            <span className="text-body text-(--gray-11)">.com</span>
+            <span className="text-body text-muted-foreground">.com</span>
             <SearchIcon />
           </TextFieldGroup>
           <TextFieldGroup variant="surface">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Multiple adornments" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
             <SunIcon />
           </TextFieldGroup>
         </div>
@@ -303,49 +307,49 @@ export const MultipleAdornments: Story = {
         <div className="flex flex-col gap-2">
           <TextFieldGroup variant="underline">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Two adornments on left" />
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <TextFieldGroup.TextField placeholder="Two adornments on right" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
             <SearchIcon />
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Two on left, one on right" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="One on left, two on right" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
             <SearchIcon />
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Three adornments total" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <SearchIcon />
             <SunIcon />
             <TextFieldGroup.TextField placeholder="Two icons on left" />
-            <span className="text-body text-(--gray-11)">kg</span>
+            <span className="text-body text-muted-foreground">kg</span>
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
-            <span className="text-body text-(--gray-11)">https://</span>
+            <span className="text-body text-muted-foreground">https://</span>
             <TextFieldGroup.TextField placeholder="www.example.com" />
-            <span className="text-body text-(--gray-11)">.com</span>
+            <span className="text-body text-muted-foreground">.com</span>
             <SearchIcon />
           </TextFieldGroup>
           <TextFieldGroup variant="underline">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Multiple adornments" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
             <SunIcon />
           </TextFieldGroup>
         </div>
@@ -590,9 +594,9 @@ export const ComplexCombinations: Story = {
           </TextFieldGroup>
           <TextFieldGroup variant="surface" color="green" size="lg">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Green with multiple adornments" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
           </TextFieldGroup>
         </div>
       </div>
@@ -613,9 +617,9 @@ export const ComplexCombinations: Story = {
           </TextFieldGroup>
           <TextFieldGroup variant="underline" color="green" size="lg">
             <SearchIcon />
-            <span className="text-body text-(--gray-11)">$</span>
+            <span className="text-body text-muted-foreground">$</span>
             <TextFieldGroup.TextField placeholder="Green with multiple adornments" />
-            <span className="text-body text-(--gray-11)">USD</span>
+            <span className="text-body text-muted-foreground">USD</span>
           </TextFieldGroup>
         </div>
       </div>

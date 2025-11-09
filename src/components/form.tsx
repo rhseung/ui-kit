@@ -131,8 +131,6 @@ const FormLabel = ({ className, ...props }: LabelProps) => {
   return <Label error={!!error} htmlFor={formItemId} {...props} />;
 };
 
-// TODO: autoComplete 없으면 타입 및 런타임 에러 띄우게 하자
-
 const FormControl = ({
   children,
   ...props
@@ -165,7 +163,7 @@ const FormDescription = ({
   return (
     <p
       id={formDescriptionId}
-      className={cn('text-caption text-(--gray-11)', className)}
+      className={cn('text-caption text-muted-foreground', className)}
       {...props}
     >
       {children}
@@ -192,7 +190,7 @@ const FormMessage = ({
       id={formMessageId}
       className={cn(
         'text-caption',
-        error ? 'text-danger' : 'text-(--gray-11)',
+        error ? 'text-danger' : 'text-muted-foreground',
         className,
       )}
       {...props}

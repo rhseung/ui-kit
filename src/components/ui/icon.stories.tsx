@@ -164,7 +164,7 @@ export const AllIcons: Story = {
       {singleVariantIcons.map(({ label, Icon }) => (
         <div key={label} className="flex flex-col items-center gap-2">
           <Icon size={args.size} aria-label={`${label} icon`} />
-          <span className="text-caption text-(--gray-11)">{label}</span>
+          <span className="text-caption text-muted-foreground">{label}</span>
         </div>
       ))}
       {multiVariantIcons.map(({ label, Icon }) => (
@@ -174,7 +174,7 @@ export const AllIcons: Story = {
             variant={(args.variant as 'line' | 'fill') ?? 'line'}
             aria-label={`${label} icon`}
           />
-          <span className="text-caption text-(--gray-11)">{label}</span>
+          <span className="text-caption text-muted-foreground">{label}</span>
         </div>
       ))}
     </div>
@@ -190,7 +190,7 @@ export const IconsWithVariants: Story = {
     <div className="flex flex-col gap-6">
       {multiVariantIcons.map(({ label, Icon }) => (
         <div key={label} className="flex flex-col gap-2">
-          <span className="text-title-4 text-(--gray-12)">{label}</span>
+          <span className="text-title-4 text-foreground">{label}</span>
           <div className="flex items-center gap-4">
             <Icon variant="line" aria-label={`${label} line icon`} />
             <Icon variant="fill" aria-label={`${label} fill icon`} />
@@ -206,12 +206,14 @@ export const IconsWithSizes: Story = {
     <div className="flex flex-col gap-6">
       {[...singleVariantIcons, ...multiVariantIcons].map(({ label, Icon }) => (
         <div key={label} className="flex flex-col gap-2">
-          <span className="text-title-4 text-(--gray-12)">{label}</span>
+          <span className="text-title-4 text-foreground">{label}</span>
           <div className="flex items-center gap-4">
             {multiSizeOptions.map((size) => (
               <div key={size} className="flex flex-col items-center gap-1">
                 <Icon size={size} aria-label={`${label} ${size}`} />
-                <span className="text-caption text-(--gray-11)">{size}</span>
+                <span className="text-caption text-muted-foreground">
+                  {size}
+                </span>
               </div>
             ))}
           </div>

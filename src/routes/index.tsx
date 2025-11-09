@@ -37,7 +37,9 @@ function App() {
               <Form.Control>
                 <TextFieldGroup>
                   <TextFieldGroup.TextField placeholder="rhseung" {...field} />
-                  <span className="text-body text-(--gray-11)">@gmail.com</span>
+                  <span className="text-body text-muted-foreground">
+                    @gmail.com
+                  </span>
                 </TextFieldGroup>
               </Form.Control>
               <Form.Description>
@@ -68,7 +70,9 @@ function App() {
               <Form.Control>
                 <TextFieldGroup variant="underline">
                   <TextFieldGroup.TextField placeholder="rhseung" {...field} />
-                  <span className="text-body text-(--gray-11)">@gmail.com</span>
+                  <span className="text-body text-muted-foreground">
+                    @gmail.com
+                  </span>
                 </TextFieldGroup>
               </Form.Control>
               <Form.Description>

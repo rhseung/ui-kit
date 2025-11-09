@@ -7,7 +7,7 @@ import type { HueName } from '@/styles/colors';
 import { tv } from '@/utils';
 
 export const textFieldStyles = tv({
-  base: 'text-body w-full text-(--gray-12) shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none disabled:opacity-50',
+  base: 'text-body text-foreground w-full shadow-none selection:bg-(--accent-a5) placeholder:text-(--gray-a8) focus:outline-none disabled:opacity-50',
   variants: {
     variant: {
       surface:
