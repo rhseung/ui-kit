@@ -35,12 +35,12 @@ function App() {
             <>
               <Form.Label required>Email</Form.Label>
               <Form.Control>
-                <TextFieldGroup>
-                  <TextFieldGroup.TextField placeholder="rhseung" {...field} />
+                <TextField placeholder="rhseung" {...field}>
+                  <TextField.Entry />
                   <span className="text-body text-muted-foreground">
                     @gmail.com
                   </span>
-                </TextFieldGroup>
+                </TextField>
               </Form.Control>
               <Form.Description>
                 This field's value: {field.value}
@@ -68,12 +68,12 @@ function App() {
             <>
               <Form.Label required>Email</Form.Label>
               <Form.Control>
-                <TextFieldGroup variant="underline">
-                  <TextFieldGroup.TextField placeholder="rhseung" {...field} />
+                <TextField variant="underline" placeholder="rhseung" {...field}>
+                  <TextField.Entry />
                   <span className="text-body text-muted-foreground">
                     @gmail.com
                   </span>
-                </TextFieldGroup>
+                </TextField>
               </Form.Control>
               <Form.Description>
                 This field's value: {field.value}
